@@ -1,0 +1,111 @@
+fileFormatVersion: 2
+guid: 46a990885a0be664da67d637be0eaa69
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ovenBody
+    100004: OvenDoor1
+    100006: ovenElements1
+    100008: ovenElements2
+    100010: ovenElements3
+    100012: ovenElements4
+    100014: ovenSwitches1
+    100016: ovenSwitches2
+    100018: ovenSwitches3
+    100020: ovenSwitches4
+    400000: //RootNode
+    400002: ovenBody
+    400004: OvenDoor1
+    400006: ovenElements1
+    400008: ovenElements2
+    400010: ovenElements3
+    400012: ovenElements4
+    400014: ovenSwitches1
+    400016: ovenSwitches2
+    400018: ovenSwitches3
+    400020: ovenSwitches4
+    2300000: ovenBody
+    2300002: OvenDoor1
+    2300004: ovenElements1
+    2300006: ovenElements2
+    2300008: ovenElements3
+    2300010: ovenElements4
+    2300012: ovenSwitches1
+    2300014: ovenSwitches2
+    2300016: ovenSwitches3
+    2300018: ovenSwitches4
+    3300000: ovenBody
+    3300002: OvenDoor1
+    3300004: ovenElements1
+    3300006: ovenElements2
+    3300008: ovenElements3
+    3300010: ovenElements4
+    3300012: ovenSwitches1
+    3300014: ovenSwitches2
+    3300016: ovenSwitches3
+    3300018: ovenSwitches4
+    4300000: ovenElements2
+    4300002: ovenSwitches2
+    4300004: ovenElements3
+    4300006: ovenElements4
+    4300008: ovenElements1
+    4300010: ovenSwitches1
+    4300012: ovenSwitches3
+    4300014: ovenSwitches4
+    4300016: ovenBody
+    4300018: OvenDoor1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

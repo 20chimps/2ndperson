@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{C9C5ACED-AF37-B251-9AC8-2374AADD4A08}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_3;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\AiBody.cs" />
+     <Compile Include="Assets\AiController.cs" />
+     <Compile Include="Assets\AiHead.cs" />
+     <Compile Include="Assets\CGame.cs" />
+     <Compile Include="Assets\CPidController.cs" />
+     <Compile Include="Assets\Climbable.cs" />
+     <Compile Include="Assets\Fan.cs" />
+     <Compile Include="Assets\GLOBAL.cs" />
+     <Compile Include="Assets\GamOverScreen.cs" />
+     <Compile Include="Assets\God Scripts\CCanDeathSequence.cs" />
+     <Compile Include="Assets\God Scripts\CDeathSequence.cs" />
+     <Compile Include="Assets\God Scripts\CMugDeathSequence.cs" />
+     <Compile Include="Assets\God Scripts\CSpongeDeathSequence.cs" />
+     <Compile Include="Assets\God Scripts\CTimerDeathSequence.cs" />
+     <Compile Include="Assets\Kitchen.cs" />
+     <Compile Include="Assets\LoseCondition.cs" />
+     <Compile Include="Assets\MenuControl.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\Resources\Clock\Scripts\Clock.cs" />
+     <Compile Include="Assets\ShakeyMovement.cs" />
+     <Compile Include="Assets\StartPoint.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\P2T.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\DelaunayTriangle.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\AdvancingFront.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\AdvancingFrontNode.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweep.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweepBasin.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweepConstraint.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweepContext.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweepDebugContext.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweepEdgeEvent.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\DTSweepPointComparator.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Delaunay\Sweep\PointOnEdgeException.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\ITriangulatable.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Orientation.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Polygon\Contour.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Polygon\Polygon.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Polygon\PolygonPoint.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Polygon\PolygonSet.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Polygon\PolygonUtil.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Sets\ConstrainedPointSet.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Sets\PointSet.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\TriangulationAlgorithm.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\TriangulationConstraint.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\TriangulationContext.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\TriangulationDebugContext.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\TriangulationMode.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\TriangulationPoint.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Util\PointGenerator.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Util\PolygonGenerator.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Triangulation\Util\TriangulationUtil.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Utility\FixedArray3.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Utility\FixedBitArray3.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Utility\MathUtil.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Utility\Point2D.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Utility\Point2DList.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\CDT\Utility\Rect2D.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\LogicArcsAndColumns.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\LogicCollidingSphere.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\LogicCompoundObject.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\LogicExplodingFloor.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\LogicExplodingGoblin.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\LogicGlobalFracturing.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Sample Scene Data\Scripts\UltimateFracturingFPS.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\ConcaveColliderInterface.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\ExplosionSource.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\Fracture.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\FracturedChunk.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\FracturedObject.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\FracturingUtilDieTimer.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\MeshData.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\SpaceTree.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\Split.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\SupportPlane.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\Fracturing\Scripts\Triangulate.cs" />
+     <Compile Include="Assets\Ultimate Game Tools\MeshCombiner\Scripts\CombinedMesh.cs" />
+     <Compile Include="Assets\WinCondition.cs" />
+     <Compile Include="Assets\crosshair.cs" />
+     <Compile Include="Assets\scrollingspin.cs" />
+     <None Include="Assets\Black Rain Texture Pack\Readme.txt" />
+     <None Include="Assets\Ultimate Game Tools\Fracturing\!Readme - v1.11.txt" />
+     <None Include="Assets\license.txt" />
+     <None Include="Assets\Ultimate Game Tools\MeshCombiner\!Readme - v1.02.txt" />
+ <Reference Include="XInputDotNetPure">
+ <HintPath>Assets\XInputDotNetPure.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
