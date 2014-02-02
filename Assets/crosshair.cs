@@ -14,6 +14,8 @@ public class crosshair : MonoBehaviour {
 	Vector3 facing;
 	Vector3 randomFace;
 	public Camera myCam;
+	float sprHeight;
+	float sprWidth;
 
 	// Use this for initialization
 	void Start () 
@@ -22,9 +24,12 @@ public class crosshair : MonoBehaviour {
 
 		StartSpin();
 
-		//Debug.Log("Start " + transform.forward);
 
-        myCam = GameObject.FindObjectOfType<AiHead>().camera;
+		//myCam = GameObject.FindObjectOfType<AiHead>().camera;
+		sprHeight = GetComponent<SpriteRenderer>().sprite.bounds.size.y / 4;
+		sprWidth = GetComponent<SpriteRenderer>().sprite.bounds.size.x / 2;
+
+		Debug.Log(sprHeight + " " + sprWidth);
 	}
 
 	// Update is called once per frame
@@ -34,26 +39,28 @@ public class crosshair : MonoBehaviour {
 		{
 		case CrosshairState.Wandering:
 		{
-			float dist = (transform.position - Camera.main.transform.position).z;
-			float leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0,0,dist)).x;
-			float rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1,0,dist)).x;
-			float upBorder = Camera.main.ViewportToWorldPoint(new Vector3(0,1,dist)).y;
-			float downBorder = Camera.main.ViewportToWorldPoint(new Vector3(0,0,dist)).y;
+			float dist = (transform.position - myCam.transform.position).z;
+			float leftBorder = myCam.ViewportToWorldPoint(new Vector3(0,0,dist)).x;
+			float rightBorder = myCam.ViewportToWorldPoint(new Vector3(1,0,dist)).x;
+			float upBorder = myCam.ViewportToWorldPoint(new Vector3(0,1,dist)).y;
+			float downBorder = myCam.ViewportToWorldPoint(new Vector3(0,0,dist)).y;
+			
+			Debug.Log(leftBorder + " " + rightBorder + " " + upBorder + " " + downBorder);
 
 			Vector3 mult = Vector3.one;
-			if (transform.position.x < leftBorder)
+			if (transform.position.x < leftBorder + sprWidth)
 			{
 				mult = Vector3.right;
 			}
-			if (transform.position.x > rightBorder)
+			if (transform.position.x > rightBorder - sprWidth)
 			{
 				mult = Vector3.left;
 			}
-			if (transform.position.y > upBorder)
+			if (transform.position.y > upBorder - sprHeight)
 			{
 				mult = Vector3.down;
 			}
-			if (transform.position.y < downBorder)
+			if (transform.position.y < downBorder + sprHeight)
 			{
 				mult = Vector3.up;
 			}
@@ -84,7 +91,7 @@ public class crosshair : MonoBehaviour {
 		Vector3 homingTarget = myCam.WorldToViewportPoint(target.position);
 		homingTarget.z = 10f;
 		transform.position = Vector3.Lerp(transform.position, homingTarget, Time.deltaTime * 3f);
-		Debug.Log ("Homing in on " + transform.position);
+		//Debug.Log ("Homing in on " + transform.position);
 	}
 	
 	// bounce around aimlessly
@@ -103,7 +110,7 @@ public class crosshair : MonoBehaviour {
 		//target.position = myCam.WorldToViewportPoint(newtarget.position);
 		//target.position.z = 10f;
 		StartPulse();
-		Debug.Log("Chasing at " + newtarget);
+		//Debug.Log("Chasing at " + newtarget);
 		state = CrosshairState.Alert;
 	}
 

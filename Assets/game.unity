@@ -15406,7 +15406,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: 1
   m_CullingMask:
@@ -19526,6 +19526,14 @@ Prefab:
       propertyPath: m_Depth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 532999d144eb2444ab7e2be303af6cfd, type: 2}
+      propertyPath: myCam
+      value: 
+      objectReference: {fileID: 1289053635}
+    - target: {fileID: 2000000, guid: 532999d144eb2444ab7e2be303af6cfd, type: 2}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 532999d144eb2444ab7e2be303af6cfd, type: 2}
   m_RootGameObject: {fileID: 1289053631}
@@ -21002,7 +21010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af442246b0755ff419ef71159cc845ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCam: {fileID: 0}
+  myCam: {fileID: 1289053635}
 --- !u!212 &1816068663
 SpriteRenderer:
   m_ObjectHideFlags: 0

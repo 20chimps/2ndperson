@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
             // We are grounded, so recalculate
             // move direction directly from axes
 
-			transform.Rotate(new Vector3(0, padState.ThumbSticks.Right.X*3, 0));
+			//transform.Rotate(new Vector3(0, padState.ThumbSticks.Right.X*3, 0));
 
 			moveDirection = transform.forward * padState.ThumbSticks.Left.Y;
 
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
             }
 
 			float deltaLookAngle = Quaternion.Angle(AiController.instance.m_Head.transform.rotation, Quaternion.LookRotation(transform.position - AiController.instance.m_Head.transform.position));
-			Debug.Log(deltaLookAngle);
+//			Debug.Log(deltaLookAngle);
 
             if (Renderer.isVisible && isVisible && deltaLookAngle < 60)
             {

@@ -1,1 +1,5 @@
 /Library
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
