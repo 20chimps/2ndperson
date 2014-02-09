@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
                 Debug.DrawLine(transform.position, AiCamera);
 				if (moveVibration>.1) {
 					Debug.Log ("saw disturbance at " + transform.position + " " + distance + " away");
-		        	AiController.instance.AddPointOfInterest(new AiController.CPointOfInterest(transform.position, 3));
+		        	AiController.instance.SetPointOfInterest(new AiController.CPointOfInterest(transform.position, 3));
 		        	AiController.instance.ProcessEvent(AiController.EEvent.sawDisturbance);
 					if (distance<1) {
 						var ds = GetComponent<CDeathSequence>();
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
 				if (moveVibration>.5) {
 					Debug.Log ("heard disturbance at " + transform.position);
 					GameObject.Find("crosshair").GetComponent<crosshair>().Chase(transform);
-	        		AiController.instance.AddPointOfInterest(new AiController.CPointOfInterest(transform.position, 3));
+	        		AiController.instance.SetPointOfInterest(new AiController.CPointOfInterest(transform.position, 3));
 	        		AiController.instance.ProcessEvent(AiController.EEvent.heardDisturbance);
 				}
             }

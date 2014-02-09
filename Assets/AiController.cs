@@ -84,7 +84,7 @@ public class AiController : MonoBehaviour
     CPidController m_PidLinearVelocity = new CPidController(1.75f, 0.0f, 0.0f);
 
     // State data.
-    System.Collections.Generic.List<CPointOfInterest> m_PointsOfInterest = new System.Collections.Generic.List<CPointOfInterest>();
+    CPointOfInterest m_PointOfInterest;
     float m_Target_Interest = 0.0f;
     Vector3 m_Target_Look = Vector3.zero;
     Vector3 m_Target_Move = Vector3.zero;
@@ -213,16 +213,12 @@ public class AiController : MonoBehaviour
         if (ai.m_State != EState.none) Debug.LogError("State is non-null upon switching to new state!");
         ai.m_Event = EEvent.none;   // Consume event.
 
-        if (ai.m_PointsOfInterest.Count > 0)
+        if (ai.m_PointOfInterest != null)
         {
-            // Todo: Sort points of interest so the most interesting appears first.
-            //ai.m_PointsOfInterest.Sort();
+            ai.m_Target_Look = ai.m_Target_Move = ai.m_PointOfInterest.m_WorldPoint;
+            ai.m_Target_Interest = ai.m_PointOfInterest.m_DisturbanceInSeconds;
+            ai.m_PointOfInterest = null;
 
-            ai.m_Target_Look = ai.m_Target_Move = ai.m_PointsOfInterest[0].m_WorldPoint;
-            ai.m_Target_Interest = ai.m_PointsOfInterest[0].m_DisturbanceInSeconds;
-            ai.m_PointsOfInterest.RemoveAt(0);
-
-			
 			//GameObject.Find("crosshair").GetComponent<crosshair>().Chase(ai.m_Target_Look);
 
             ai.m_Event = EEvent.transition_LookAt;
@@ -408,9 +404,9 @@ public class AiController : MonoBehaviour
 		//GameObject.Find("crosshair").GetComponent<crosshair>().Chase(moveTarget);
 	}
 
-    public void AddPointOfInterest(CPointOfInterest _pointOfInterest)
+    public void SetPointOfInterest(CPointOfInterest _pointOfInterest)
     {
-        m_PointsOfInterest.Add(_pointOfInterest);
+		m_PointOfInterest = _pointOfInterest;
     }
 
     public bool IsInView(Vector3 worldPoint)

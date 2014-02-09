@@ -18,7 +18,14 @@ public class AiHead : MonoBehaviour
         if (m_Body != null)
             transform.position = m_Body.transform.position;
 
-        float pitch = Mathf.Clamp(m_Pitch.rigidbody.rotation.eulerAngles.x, -Mathf.PI * 0.5f, Mathf.PI * 0.5f);
-        transform.rotation = Quaternion.Euler(m_Pitch.transform.rotation.eulerAngles.x, m_Yaw.transform.rotation.eulerAngles.y, 0.0f);
+        float pitch = m_Pitch.rigidbody.rotation.eulerAngles.x;
+        // Clamp.
+        if (pitch > 180 && pitch < 270)
+            pitch = 270;
+        else if (pitch <= 180 && pitch > 90)
+            pitch = 90;
+
+        transform.rotation = Quaternion.Euler(pitch, m_Yaw.transform.rotation.eulerAngles.y, 0.0f);
+        Debug.Log(m_Yaw.transform.rotation.eulerAngles.y.ToString() + "\n" + pitch.ToString());
     }
 }
