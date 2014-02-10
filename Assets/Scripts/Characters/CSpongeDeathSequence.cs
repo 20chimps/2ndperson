@@ -68,8 +68,8 @@ public class CSpongeDeathSequence : CDeathSequence
 	public GameObject m_cLeftPeice = null;
 	public GameObject m_cRightPeice = null;
 
-	float m_fLeftStartPosX = 0.0f;
-	float m_fRightStartPosY = 0.0f;
+	//float m_fLeftStartPosX = 0.0f;
+	//float m_fRightStartPosY = 0.0f;
 
 	EStage m_eCurrentStage = EStage.INVALID;
 

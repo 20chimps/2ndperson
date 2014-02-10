@@ -26,8 +26,8 @@ public class CMugDeathSequence : CDeathSequence
 	{
 		base.Start();	
 	}
-	
-	void Update()
+
+	protected override void Update()
 	{
 		base.Update();
 		

@@ -40,9 +40,9 @@ public class StartPoint : MonoBehaviour
 #if UNITY_EDITOR
 	void OnDrawGizmos()
 	{
-        Handles.color = color;
-        Handles.DrawSphere(0, transform.position, Quaternion.identity, 0.1f);
-        Handles.DrawLine(transform.position, transform.position + (Vector3.up * 0.25f));
+        //Handles.color = color;
+        //Handles.DrawSphere(0, transform.position, Quaternion.identity, 0.1f);
+        //Handles.DrawLine(transform.position, transform.position + (Vector3.up * 0.25f));
 	}
 #endif
 

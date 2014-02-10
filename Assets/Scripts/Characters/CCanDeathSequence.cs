@@ -29,8 +29,8 @@ public class CCanDeathSequence : CDeathSequence
 	{
 		base.Start();
 	}
-	
-	void Update()
+
+	protected override void Update()
 	{
 		base.Update();
 		

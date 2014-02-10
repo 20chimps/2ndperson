@@ -41,7 +41,7 @@ public class MenuControl : MonoBehaviour
 				continue;
 			}
 
-            bool newState = false;
+            //bool newState = false;
 			//if (GamePad.GetState((PlayerIndex)i).Buttons.X == ButtonState.Pressed && (Time.time - lastAction > .2))
             if (GamePad.GetState((PlayerIndex)i).Buttons.A == ButtonState.Pressed)
 			{
@@ -50,14 +50,14 @@ public class MenuControl : MonoBehaviour
 				if (playerStates[i] == ControllerState.NOTREADY)
 				{
 					playerStates[i] = ControllerState.READY;
-					newState = true;
+					//newState = true;
 				}
     
             }
             else if(GamePad.GetState((PlayerIndex)i).Buttons.B == ButtonState.Pressed)
             {
                 playerStates[i] = ControllerState.NOTREADY;
-					newState = false;
+					//newState = false;
             }
 				//playerStates[i] = (playerStates[i] == ControllerState.NOTREADY ? ControllerState.READY : ControllerState.NOTREADY);
 

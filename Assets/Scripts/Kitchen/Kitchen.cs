@@ -7,6 +7,8 @@ using XInputDotNetPure;
 public class Kitchen : MonoBehaviour 
 {
     const int maxCharacters = 4;
+
+#pragma warning disable 0414 // playerCount unsused
     private int playerCount = 0;
 
     public bool gameWon;

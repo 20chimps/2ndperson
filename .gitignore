@@ -19,3 +19,6 @@
 /*.csproj
 /*.unityproj
 /*.unityproj
+/Temp
+
+/obj
