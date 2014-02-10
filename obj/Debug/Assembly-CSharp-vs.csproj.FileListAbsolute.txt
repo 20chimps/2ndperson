@@ -1,0 +1,12 @@
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\Assembly-CSharp.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\UnityEditor.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\UnityEngine.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\XInputDotNetPure.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\Mono.Cecil.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\nunit.framework.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\Unity.DataContract.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\obj\Debug\Assembly-CSharp.dll
+D:\Users\mana.k\Desktop\2nd Person\2ndperson\obj\Debug\Assembly-CSharp.pdb
