@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 6043691951229f74381345d4609f5945
+guid: f2458354574fe0f4582ecb88b630f502
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
-    100000: cupboard
-    100002: //RootNode
-    100004: cupboardDoor
-    100006: CupboardTop
-    400000: cupboard
-    400002: //RootNode
-    400004: cupboardDoor
-    400006: CupboardTop
-    2300000: cupboard
-    2300002: cupboardDoor
-    2300004: CupboardTop
-    3300000: cupboard
-    3300002: cupboardDoor
-    3300004: CupboardTop
-    4300000: cupboard
-    4300002: cupboardDoor
-    4300004: CupboardTop
+    100000: pCube1
+    100002: pCube2
+    100004: pCube3
+    100006: polySurface1
+    100008: //RootNode
+    100010: transform1
+    100012: transform2
+    400000: pCube1
+    400002: pCube2
+    400004: pCube3
+    400006: polySurface1
+    400008: //RootNode
+    400010: transform1
+    400012: transform2
+    2300000: pCube3
+    2300002: polySurface1
+    3300000: pCube3
+    3300002: polySurface1
+    4300000: polySurface1
+    4300002: pCube3
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -72,5 +75,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
-  additionalBone: 0
   userData: 

@@ -57,7 +57,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
-  - 95: {fileID: 9500000}
   - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Cupboard1
@@ -161,7 +160,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Mesh: {fileID: 4300002, guid: 3c991a1a62cba774e875d1baf270f08a, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 886cadb5212090043a0b0335df32627c, type: 3}
 --- !u!33 &3300002
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -181,20 +180,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .109999999, y: .100000001, z: .100000001}
   m_Center: {x: -.00100000005, y: 0, z: 0}
---- !u!95 &9500000
-Animator:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3c991a1a62cba774e875d1baf270f08a, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
-  m_HasTransformHierarchy: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

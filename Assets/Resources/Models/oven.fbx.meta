@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 46a990885a0be664da67d637be0eaa69
+guid: dc3e358b3964e7341b1fcd28d4c0b771
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
     100002: ovenBody
@@ -107,5 +107,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
-  additionalBone: 0
   userData: 

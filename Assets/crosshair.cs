@@ -29,7 +29,7 @@ public class crosshair : MonoBehaviour {
 		sprHeight = GetComponent<SpriteRenderer>().sprite.bounds.size.y / 4;
 		sprWidth = GetComponent<SpriteRenderer>().sprite.bounds.size.x / 2;
 
-		Debug.Log(sprHeight + " " + sprWidth);
+		//Debug.Log(sprHeight + " " + sprWidth);
 	}
 
 	// Update is called once per frame
@@ -45,7 +45,7 @@ public class crosshair : MonoBehaviour {
 			float upBorder = myCam.ViewportToWorldPoint(new Vector3(0,1,dist)).y;
 			float downBorder = myCam.ViewportToWorldPoint(new Vector3(0,0,dist)).y;
 			
-			Debug.Log(leftBorder + " " + rightBorder + " " + upBorder + " " + downBorder);
+			//Debug.Log(leftBorder + " " + rightBorder + " " + upBorder + " " + downBorder);
 
 			Vector3 mult = Vector3.one;
 			if (transform.position.x < leftBorder + sprWidth)

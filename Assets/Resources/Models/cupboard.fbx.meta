@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: e09bfaf6ec413584284dd44d294bd607
+guid: c356a4588552350409d0521ca3c5f1f5
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
-    100000: pCube1
-    100002: pCube2
-    100004: pCube3
-    100006: polySurface1
-    100008: //RootNode
-    100010: transform1
-    100012: transform2
-    400000: pCube1
-    400002: pCube2
-    400004: pCube3
-    400006: polySurface1
-    400008: //RootNode
-    400010: transform1
-    400012: transform2
-    2300000: pCube3
-    2300002: polySurface1
-    3300000: pCube3
-    3300002: polySurface1
+    100000: //RootNode
+    100002: polySurface1
+    100004: polySurface2
+    100006: transform1
+    400000: //RootNode
+    400002: polySurface1
+    400004: polySurface2
+    400006: transform1
+    2300000: polySurface1
+    2300002: polySurface2
+    3300000: polySurface1
+    3300002: polySurface2
     4300000: polySurface1
-    4300002: pCube3
+    4300002: polySurface2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -42,7 +36,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: .00100000005
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -60,7 +54,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
@@ -75,5 +69,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
-  additionalBone: 0
   userData: 

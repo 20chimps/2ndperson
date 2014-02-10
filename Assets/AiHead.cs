@@ -26,6 +26,6 @@ public class AiHead : MonoBehaviour
             pitch = 90;
 
         transform.rotation = Quaternion.Euler(pitch, m_Yaw.transform.rotation.eulerAngles.y, 0.0f);
-        Debug.Log(m_Yaw.transform.rotation.eulerAngles.y.ToString() + "\n" + pitch.ToString());
+        //Debug.Log(m_Yaw.transform.rotation.eulerAngles.y.ToString() + "\n" + pitch.ToString());
     }
 }
