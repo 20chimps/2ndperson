@@ -30,6 +30,11 @@ public class crosshair : MonoBehaviour {
 		sprWidth = GetComponent<SpriteRenderer>().sprite.bounds.size.x / 2;
 
 		//Debug.Log(sprHeight + " " + sprWidth);
+
+		if(CGame.Singleton.currentState != CGame.EGameState.Kitchen)
+		{
+			GetComponent<SpriteRenderer>().enabled = false;
+		}
 	}
 
 	// Update is called once per frame

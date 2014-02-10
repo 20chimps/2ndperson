@@ -17,7 +17,8 @@ public class scrollingspin : MonoBehaviour {
 
 		if (transform.position.y < -6f)
 		{
-			Application.LoadLevel("title");
+			CGame.Singleton.currentState = CGame.EGameState.Title;
+			Application.LoadLevel("titleV2");
 		}
 	}
 }

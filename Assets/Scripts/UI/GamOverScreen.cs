@@ -16,7 +16,8 @@ public class GamOverScreen : MonoBehaviour
         if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed)
         {
             // start transition
-            Application.LoadLevel("title");
+			CGame.Singleton.currentState = CGame.EGameState.Title;
+            Application.LoadLevel("titleV2");
             return;
         }
 	

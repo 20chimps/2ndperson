@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
 {
 	public enum EPropType
 	{
-		Sponge =0,
-		Can,
-		Timer,
-		Mug
+		None = -1,
+		Sponge = 0,
+		Can = 1,
+		Mug = 2,
+		Timer = 3,
+		MAX
 	}
 
 	public float speed = 3.0f;
@@ -19,7 +21,6 @@ public class PlayerController : MonoBehaviour
 	public float pushPower = 2f;
 	public PlayerIndex playerIndex = 0;
 	private Vector3 cameraPosition;
-	private float lastEvent = Time.time;
 
     private Vector3 climbDirection;
     public Vector3 ClimbDirection
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
                 move.y += 0.2f;
                 GetComponent<CharacterController>().Move(move);
                 moveDirection = Vector3.zero;
+				characterController.transform.forward = forwardDirection;
             }
 
             canClimb = value;
@@ -66,14 +68,26 @@ public class PlayerController : MonoBehaviour
 	
 	void Start () 
 	{
-		// Make the character look to the window from the get go.
-		transform.LookAt(forwardDirection);
+		if (CGame.Singleton.currentState != CGame.EGameState.Kitchen)
+		{
 
-		characterController = GetComponent<CharacterController>();
+		}
+		else
+		{
+			// Make the character look to the window from the get go.
+			transform.LookAt(forwardDirection);
+
+			characterController = GetComponent<CharacterController>();
+		}
 	}
 	
 	void FixedUpdate() 
 	{
+		if (CGame.Singleton.currentState != CGame.EGameState.Kitchen)
+		{
+			return;
+		}
+
 		GamePadState padState =  GamePad.GetState(playerIndex);
         GamePadButtons buttons = padState.Buttons;
 
@@ -141,6 +155,8 @@ public class PlayerController : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.fixedDeltaTime);
+
+		cameraPosition = AiController.instance.m_Head.camera.transform.position;
 
 		Vector3 xzV = moveDirection;
 		xzV.y = 0;
@@ -216,7 +232,7 @@ public class PlayerController : MonoBehaviour
 	
     void Vibrate(PlayerIndex playerIndex, float low, float high)
     {
-		if (vibrate)
+		//if (vibrate)
 		{
 			GamePad.SetVibration(playerIndex, low, high);
 		}
@@ -251,11 +267,14 @@ public class PlayerController : MonoBehaviour
 
 	public void OnDrawGizmos()
 	{
-		float cameraRadius = AiController.instance.m_Body.transform.collider.bounds.extents.magnitude;
-		cameraPosition = AiController.instance.m_Head.camera.transform.position;
+		if (AiController.instance)
+		{
+			float cameraRadius = AiController.instance.m_Body.transform.collider.bounds.extents.magnitude;
+			cameraPosition = AiController.instance.m_Head.camera.transform.position;
 
-		Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(cameraPosition, cameraRadius);
+			Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(cameraPosition, cameraRadius);
+		}
 	}
 }

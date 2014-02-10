@@ -19,7 +19,7 @@ public class MenuControl : MonoBehaviour
 	void Start ()
 	{
 		playerStates = new Dictionary<int, ControllerState>();
-		for (int i = 0; i < 4; ++i)
+		for (int i = 0; i < CGame.maxPlayers; ++i)
 		{
 			ControllerState state = ControllerState.UNPLUGGED;
 			if(GamePad.GetState((PlayerIndex)i).IsConnected)
@@ -33,7 +33,7 @@ public class MenuControl : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		for (int i = 0; i < 4; ++i)
+		for (int i = 0; i < CGame.maxPlayers; ++i)
 		{
 			if (playerStates[i] == ControllerState.UNPLUGGED)
 			{
@@ -73,16 +73,18 @@ public class MenuControl : MonoBehaviour
 
 	void PlayGame()
 	{
-        CGame.Singleton.readyPlayers = new List<bool>();
+        CGame.Singleton.readyPlayers = new bool[CGame.maxPlayers];
 
 		int numPlayers = 0;
-		for (int i = 0; i < 4; ++i)
+		for (int i = 0; i < CGame.maxPlayers; ++i)
 		{
 
-			CGame.Singleton.readyPlayers.Add(playerStates[i] == ControllerState.READY ? true : false);
+			CGame.Singleton.readyPlayers[i] = (playerStates[i] == ControllerState.READY ? true : false);
 			++numPlayers;
 		}
 		if (numPlayers > 0)
-		Application.LoadLevel("game");
+		{
+			Application.LoadLevel("game");
+		}
 	}
 }

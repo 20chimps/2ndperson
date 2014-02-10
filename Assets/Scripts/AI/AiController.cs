@@ -310,9 +310,11 @@ public class AiController : MonoBehaviour
     {
         m_Instance = this;
         m_Body = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiBody"), new Vector3(2.0f, 2.0f, -1.0f), Quaternion.AngleAxis(0.0f, Vector3.forward));
-        m_Head = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiHead"));
-        m_HeadAi = m_Head.GetComponent<AiHead>();
-        m_HeadAi.m_Body = m_Body;
+
+
+		m_Head = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiHead"));
+		m_HeadAi = m_Head.GetComponent<AiHead>();
+		m_HeadAi.m_Body = m_Body;
     }
 
     void Start()

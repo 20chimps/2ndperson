@@ -29,49 +29,46 @@ public class Kitchen : MonoBehaviour
 
         StartPoint[] startPoints = FindObjectsOfType<StartPoint>();
 
-        List<bool> connectedPlayers = CGame.Singleton.readyPlayers;
+        bool[] connectedPlayers = CGame.Singleton.readyPlayers;
+		PlayerController.EPropType[] chosenProp = CGame.Singleton.chosenHeroes;
 
         List<PlayerController> players = new List<PlayerController>();
 
-        int i = 0;
-        foreach (bool b in connectedPlayers)
-        {
-            if (b)
-            {
-                GameObject playerGO = null;
+		for (int i = 0; i < connectedPlayers.Length; ++i )
+		{
+			if(connectedPlayers[i])
+			{
+				GameObject playerGO = null;
 
 
-                int rand = 0;
-                rand = Random.Range(0, maxCharacters);
-     
-
-                PlayerController.EPropType type = (PlayerController.EPropType)rand;
+				int rand = 0;
+				rand = Random.Range(0, maxCharacters);
 
 
+				//PlayerController.EPropType type = (PlayerController.EPropType)rand;
 				//playerGO = Instantiate(Resources.Load("Characters/Sponge")) as GameObject;
 
-                
-                switch (type)
-                {
-                    case PlayerController.EPropType.Sponge: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Sponge")) as GameObject; break;
-                    case PlayerController.EPropType.Timer: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Timer")) as GameObject; break;
-                    case PlayerController.EPropType.Mug: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Mug")) as GameObject; break;
-                    case PlayerController.EPropType.Can: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Can")) as GameObject; break;
-                    default: Debug.LogError("Unhandled case"); break;
-                }
-                
+				switch (chosenProp[i])
+				{
+					case PlayerController.EPropType.Sponge: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Sponge")) as GameObject; break;
+					case PlayerController.EPropType.Timer: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Timer")) as GameObject; break;
+					case PlayerController.EPropType.Mug: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Mug")) as GameObject; break;
+					case PlayerController.EPropType.Can: playerGO = Instantiate(Resources.Load("Prefabs/Characters/Can")) as GameObject; break;
+					default: Debug.LogError("Unhandled case"); break;
+				}
 
-                playerGO.transform.position = startPoints[i].transform.position;
 
-                playerGO.GetComponent<PlayerController>().playerIndex = (XInputDotNetPure.PlayerIndex)i;
+				playerGO.transform.position = startPoints[i].transform.position;
 
-                players.Add(playerGO.GetComponent<PlayerController>());
+				playerGO.GetComponent<PlayerController>().playerIndex = (XInputDotNetPure.PlayerIndex)i;
 
-                playerGO.GetComponent<CDeathSequence>().EventSequenceEnd += OnDeathSequenceEnd;
+				players.Add(playerGO.GetComponent<PlayerController>());
 
-                i++;
-            }
-        }
+				playerGO.GetComponent<CDeathSequence>().EventSequenceEnd += OnDeathSequenceEnd;
+
+				i++;
+			}
+		}
 
 
         CGame.Singleton.players = players;
@@ -85,7 +82,7 @@ public class Kitchen : MonoBehaviour
         if (gameWon || gameLost)
         {
             timeAccum += Time.deltaTime;
-            Debug.Log(timeAccum);
+            //Debug.Log(timeAccum);
             if (timeAccum >= waitTime)
             {
                 if (gameWon)

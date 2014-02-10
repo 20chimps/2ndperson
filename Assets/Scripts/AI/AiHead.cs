@@ -13,6 +13,14 @@ public class AiHead : MonoBehaviour
         m_Yaw = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiHeadYaw"));
     }
 
+	void Start()
+	{
+		if (CGame.Singleton.currentState == CGame.EGameState.CharacterSelect)
+		{
+			GetComponent<Camera>().enabled = false;
+		}
+	}
+
     void FixedUpdate()
     {
         if (m_Body != null)

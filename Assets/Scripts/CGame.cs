@@ -4,6 +4,16 @@ using System.Collections.Generic;
 
 public class CGame : MonoBehaviour 
 {
+	public const int maxPlayers = 2;
+	public enum EGameState
+	{
+		Title,
+		CharacterSelect,
+		Kitchen,
+	}
+
+	public EGameState currentState = EGameState.Kitchen;
+
     static CGame gameInstance;
     public static CGame Singleton
 	{
@@ -24,7 +34,10 @@ public class CGame : MonoBehaviour
     private PlayerController winner;
     
 	// if bool == false, do not spawn him
-    public List<bool> readyPlayers = new List<bool>();
+    public bool[] readyPlayers = new bool[maxPlayers];
+
+	//
+	public PlayerController.EPropType[] chosenHeroes = new PlayerController.EPropType[maxPlayers];
 
     public List<PlayerController> players;
 
