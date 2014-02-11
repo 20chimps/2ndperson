@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 	public float gravity = 20.0f;
     public float climbSpeed = 1.5f;
 	public float pushPower = 2f;
-	public PlayerIndex playerIndex = 0;
+	public int playerIndex = 0;
 	private Vector3 cameraPosition;
 
     private Vector3 climbDirection;
@@ -88,8 +88,8 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
-		GamePadState padState =  GamePad.GetState(playerIndex);
-        GamePadButtons buttons = padState.Buttons;
+		//GamePadState padState =  GamePad.GetState((XInputDotNetPure.PlayerIndex)playerIndex);
+        //GamePadButtons buttons = padState.Buttons;
 
 		// If not climbing, face forward
 		if(!climbingPressed)
@@ -100,8 +100,10 @@ public class PlayerController : MonoBehaviour
         // If grounded and NOT Climbing you can Move and Jump
         if (characterController.isGrounded) // This is a Unity built-in bool for CharacterController
         {
-			moveDirection = transform.forward * padState.ThumbSticks.Left.Y;
-			moveDirection += transform.right * padState.ThumbSticks.Left.X;
+			//moveDirection = transform.forward * padState.ThumbSticks.Left.Y;
+			//moveDirection += transform.right * padState.ThumbSticks.Left.X;
+			moveDirection = transform.forward * InputDevice.GetAxisY(playerIndex);
+			moveDirection += transform.right * InputDevice.GetAxisX(playerIndex);
             
 			// If there is analog movement outside of the deadzone, move the character
             if (moveDirection.magnitude > 0.01f)
@@ -115,7 +117,8 @@ public class PlayerController : MonoBehaviour
             }
 
 			// If jumping then boost the character up
-            if (buttons.A == ButtonState.Pressed)
+            //if (buttons.A == ButtonState.Pressed)
+			if (InputDevice.GetA(playerIndex))
             {
                 moveDirection.y += jumpSpeed;
             }
@@ -130,7 +133,8 @@ public class PlayerController : MonoBehaviour
         if (CanClimb && !climbingPressed)
         {
 			// If climbing button is pressed then start climbing.
-            if (buttons.B == ButtonState.Pressed)
+            //if (buttons.B == ButtonState.Pressed)
+			if(InputDevice.GetB(playerIndex))
             {
                 climbingPressed = true;
                 moveDirection = Vector3.zero;
@@ -141,7 +145,8 @@ public class PlayerController : MonoBehaviour
         if (CanClimb && climbingPressed)
         {
 			// If the climbing button has been released then stop climbing
-			if (buttons.B == ButtonState.Released)
+			//if (buttons.B == ButtonState.Released)
+			if(!InputDevice.GetB(playerIndex))
 			{
 				climbingPressed = false;
 			}
@@ -159,7 +164,7 @@ public class PlayerController : MonoBehaviour
 		cameraPosition = AiController.instance.m_Head.camera.transform.position;
 
 		Vector3 xzV = moveDirection;
-		xzV.y = 0;
+		//xzV.y = 0;
 		float moveVibration = xzV.magnitude;
 		if (moveVibration > 1) moveVibration = 1;
 		if (moveVibration > 0.5)
@@ -213,11 +218,11 @@ public class PlayerController : MonoBehaviour
 			}
 			// Danger vibration
 			var dangerVibration = 1 / distance;
-			Vibrate(playerIndex, dangerVibration, moveVibration);
+			//Vibrate(playerIndex, dangerVibration, moveVibration);
 		}
 		else
 		{
-			Vibrate(playerIndex, 0, moveVibration);
+			//Vibrate(playerIndex, 0, moveVibration);
 			//Debug.Log (moveVibration);
 			if (moveVibration > .5)
 			{
@@ -230,18 +235,18 @@ public class PlayerController : MonoBehaviour
 	}
 
 	
-    void Vibrate(PlayerIndex playerIndex, float low, float high)
+    void Vibrate(int playerIndex, float low, float high)
     {
 		//if (vibrate)
-		{
-			GamePad.SetVibration(playerIndex, low, high);
-		}
+		//{
+		//GamePad.SetVibration((PlayerIndex)playerIndex, low, high);
+		//}
     }
 	
 	void OnDestroy() 
 	{
 		Debug.Log("Destroyed!");
-		Vibrate(playerIndex, 0, 0);
+		//Vibrate(playerIndex, 0, 0);
 	}
 	
 	void OnControllerColliderHit (ControllerColliderHit hit) 

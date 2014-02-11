@@ -174,7 +174,7 @@ public class CharacterSelectScreen : MonoBehaviour
 				readyCount++;
 			}
 		}
-		Debug.Log(readyCount);
+		//Debug.Log(readyCount);
 		if (numPlayers == readyCount)
 		{
 			PlayGame();

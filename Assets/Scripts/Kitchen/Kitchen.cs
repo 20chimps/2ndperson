@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 
 public class Kitchen : MonoBehaviour 
@@ -60,7 +60,7 @@ public class Kitchen : MonoBehaviour
 
 				playerGO.transform.position = startPoints[i].transform.position;
 
-				playerGO.GetComponent<PlayerController>().playerIndex = (XInputDotNetPure.PlayerIndex)i;
+				playerGO.GetComponent<PlayerController>().playerIndex = i;
 
 				players.Add(playerGO.GetComponent<PlayerController>());
 
