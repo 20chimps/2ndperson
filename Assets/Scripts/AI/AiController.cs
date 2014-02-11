@@ -3,11 +3,6 @@ using System.Collections;
 
 public class AiController : MonoBehaviour
 {
-    public static AiController instance { get { return m_Instance; } }
-    private static AiController m_Instance = null;
-    public GameObject m_Body = null;
-    public GameObject m_Head = null;
-    AiHead m_HeadAi = null;
 
     enum EState
     {
@@ -75,23 +70,16 @@ public class AiController : MonoBehaviour
 		new CStateTransition(EState.any, EEvent.any, Init_Idle),
 	};
 
-    CPidController m_PidAngularYaw = new CPidController(2.0f, 0.001f, 0.001f);
-    CPidController m_PidAngularPitch = new CPidController(2.0f, 0.001f, 0.001f);
-    CPidController m_PidVelocityYaw = new CPidController(3.0f, 0, 0);
-    CPidController m_PidVelocityPitch = new CPidController(3.0f, 0, 0);
-
-    CPidController m_PidLinearForce = new CPidController(1.75f, 0.01f, 0.01f);
-    CPidController m_PidLinearVelocity = new CPidController(1.75f, 0.0f, 0.0f);
+	public static AiController instance { get { return m_Instance; } }
+	private static AiController m_Instance = null;
+	public GameObject m_Body = null;
+	public GameObject m_Head = null;
+	AiBody m_BodyAi = null;
+	AiHead m_HeadAi = null;
 
     // State data.
     CPointOfInterest m_PointOfInterest;
     float m_Target_Interest = 0.0f;
-    Vector3 m_Target_Look = Vector3.zero;
-    Vector3 m_Target_Move = Vector3.zero;
-    bool m_Target_LookEnable = false;
-    bool m_Target_MoveEnable = false;
-    bool m_Target_LookingAt = false;
-    bool m_Target_MovedTo = false;
 
     static bool Proc_LookAt(AiController ai)
     {
@@ -105,10 +93,10 @@ public class AiController : MonoBehaviour
 					ai.m_State = EState.none;
 					GameObject.Find("crosshair").GetComponent<crosshair>().CalmDown();
                 }
-                else if (ai.m_Target_LookingAt)    // Wait until the target is being looked at...
+                else if (ai.m_HeadAi.lookingAtTarget)    // Wait until the target is being looked at...
                 {
                     // Check if the target is in view. If not, invoke seek behaviour.
-                    Vector3 direction = ai.m_Target_Look - ai.m_Head.transform.position;
+                    Vector3 direction = ai.m_HeadAi.lookTarget - ai.m_Head.transform.position;
                     float distance = direction.magnitude;
                     // @ JADE >>>>>>>>> COMMECTED THIS OUT SO SHE IS MORE AGGRESSIVE
                     //if (Physics.Raycast(ai.m_Head.transform.position, direction, distance))
@@ -136,7 +124,7 @@ public class AiController : MonoBehaviour
         switch(ai.m_Event)
         {
             case EEvent.none:
-                ai.m_Target_Interest -= Time.deltaTime * (ai.m_Target_MovedTo ? 0.75f : 0.2f);
+                ai.m_Target_Interest -= Time.deltaTime * (ai.m_BodyAi.movedToTarget ? 0.75f : 0.2f);
                 if (ai.m_Target_Interest <= 0.0f)
                 {
 					ai.m_State = EState.none;
@@ -173,7 +161,7 @@ public class AiController : MonoBehaviour
         {
             case EEvent.none:
                 // Check out something random.
-                ai.m_Target_Look = ai.m_Target_Move = new Vector3(Random.Range(-4.5f, 4.5f), Random.Range(1.0f, 2.0f), Random.Range(-4.5f, 4.5f));
+				ai.m_HeadAi.lookTarget = ai.m_BodyAi.moveTarget = new Vector3(Random.Range(-4.5f, 4.5f), Random.Range(1.0f, 2.0f), Random.Range(-4.5f, 4.5f));
                 ai.m_Target_Interest = Random.Range(1.0f, 3.0f);
 				GameObject.Find("crosshair").GetComponent<crosshair>().CalmDown();
                 ai.m_Event = EEvent.transition_LookAt;
@@ -215,7 +203,7 @@ public class AiController : MonoBehaviour
 
         if (ai.m_PointOfInterest != null)
         {
-            ai.m_Target_Look = ai.m_Target_Move = ai.m_PointOfInterest.m_WorldPoint;
+            ai.m_HeadAi.lookTarget = ai.m_BodyAi.moveTarget = ai.m_PointOfInterest.m_WorldPoint;
             ai.m_Target_Interest = ai.m_PointOfInterest.m_DisturbanceInSeconds;
             ai.m_PointOfInterest = null;
 
@@ -233,8 +221,8 @@ public class AiController : MonoBehaviour
         if (ai.m_State != EState.none) Debug.LogError("State is non-null upon switching to new state!");
         ai.m_Event = EEvent.none;   // Consume event.
 
-        ai.m_Target_LookEnable = true;
-        ai.m_Target_MoveEnable = false;
+        ai.m_HeadAi.lookEnable = true;
+        ai.m_BodyAi.moveEnable = false;
 
         ai.m_State = EState.lookingAt;
 
@@ -246,8 +234,8 @@ public class AiController : MonoBehaviour
         if (ai.m_State != EState.none) Debug.LogError("State is non-null upon switching to new state!");
         ai.m_Event = EEvent.none;   // Consume event.
 
-        ai.m_Target_LookEnable = true;
-        ai.m_Target_MoveEnable = true;
+		ai.m_HeadAi.lookEnable = true;
+		ai.m_BodyAi.moveEnable = true;
 
         ai.m_State = EState.goingTo;
 
@@ -287,8 +275,8 @@ public class AiController : MonoBehaviour
 
         ai.m_Event = EEvent.none;   // Consume event.
 
-        ai.m_Target_LookEnable = true;
-        ai.m_Target_MoveEnable = false;
+		ai.m_HeadAi.lookEnable = true;
+		ai.m_BodyAi.moveEnable = false;
 
         return true;
     }
@@ -298,8 +286,8 @@ public class AiController : MonoBehaviour
         if (ai.m_State != EState.none) Debug.LogError("State is non-null upon switching to new state!");
         ai.m_Event = EEvent.none;   // Consume event.
 
-        ai.m_Target_LookEnable = true;
-        ai.m_Target_MoveEnable = true;
+		ai.m_HeadAi.lookEnable = true;
+		ai.m_BodyAi.moveEnable = true;
 
         ai.m_State = EState.idling;
 
@@ -310,11 +298,12 @@ public class AiController : MonoBehaviour
     {
         m_Instance = this;
         m_Body = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiBody"), new Vector3(2.0f, 2.0f, -1.0f), Quaternion.AngleAxis(0.0f, Vector3.forward));
-
+		m_BodyAi = m_Body.GetComponent<AiBody>();
+		m_BodyAi.m_Parent = this;
 
 		m_Head = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiHead"));
 		m_HeadAi = m_Head.GetComponent<AiHead>();
-		m_HeadAi.m_Body = m_Body;
+		m_HeadAi.parent = this;
     }
 
     void Start()
@@ -348,49 +337,7 @@ public class AiController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 worldTargetLook = m_Target_Look - m_Head.transform.position;
-        //float worldTargetLookDist = worldTargetLook.magnitude;
-        //Vector3 worldTargetLookDir = worldTargetLook.normalized;
-        Vector3 worldTargetMove = m_Target_Move - m_Body.transform.position;
-        float worldTargetMoveDist = worldTargetMove.magnitude;
-        Vector3 worldTargetMoveDir = worldTargetMove.normalized;
 
-        float deltaLookAngle = Quaternion.Angle(m_Head.transform.rotation, Quaternion.LookRotation(worldTargetLook));
-
-        float lookTorqueYaw = 0.0f;
-        float lookTorquePitch = 0.0f;
-        if (m_Target_LookEnable)
-        {
-            // Look at the look target.
-            Vector3 localTargetLook = (Quaternion.Inverse(m_Head.transform.rotation) * (m_Target_Look - m_Head.transform.position));
-            lookTorqueYaw = m_PidAngularYaw.GetOutput(Mathf.Atan2(localTargetLook.x, localTargetLook.z), Time.fixedDeltaTime);
-
-            float pitch = Mathf.Atan2(localTargetLook.y, Mathf.Abs(localTargetLook.z));
-            if (pitch > Mathf.PI * 0.5f)
-                pitch = Mathf.PI - pitch;
-            else if(pitch < -Mathf.PI * 0.5f)
-                pitch = -Mathf.PI - pitch;
-            lookTorquePitch = m_PidAngularPitch.GetOutput(pitch, Time.fixedDeltaTime);
-        }
-
-        float lookVelocityYaw = m_PidVelocityYaw.GetOutput(-m_HeadAi.m_Yaw.rigidbody.angularVelocity.y, Time.fixedDeltaTime);
-        float lookVelocityPitch = m_PidVelocityPitch.GetOutput(m_HeadAi.m_Pitch.rigidbody.angularVelocity.x, Time.fixedDeltaTime);
-
-        m_HeadAi.m_Yaw.rigidbody.AddTorque(Vector3.up * (lookTorqueYaw + lookVelocityYaw), ForceMode.Acceleration);
-        m_HeadAi.m_Pitch.rigidbody.AddTorque(Vector3.left * (lookTorquePitch + lookVelocityPitch), ForceMode.Acceleration);
-
-        // Set state information saying whether the look target is being looked at or not.
-        m_Target_LookingAt = deltaLookAngle < 30;	// Is looking at target if within cone of x degrees radius.
-
-        float moveForce = 0.0f;
-        if (m_Target_MoveEnable)
-            moveForce = m_PidLinearForce.GetOutput(worldTargetMoveDist, Time.fixedDeltaTime);
-        
-        float moveVelocity = m_PidLinearVelocity.GetOutput(m_Body.rigidbody.velocity.magnitude, Time.fixedDeltaTime);
-        m_Body.rigidbody.AddForce(worldTargetMoveDir * moveForce + m_Body.rigidbody.velocity.normalized * -moveVelocity, ForceMode.Acceleration);
-
-        // Set state information saying whether the move target has been reached or not.
-        m_Target_MovedTo = (m_Body.transform.position - m_Target_Move).sqrMagnitude < 3;	// Is at move target if within 1 unit of target radius.
     }
 
     public void ProcessEvent(EEvent _event)
@@ -399,10 +346,10 @@ public class AiController : MonoBehaviour
         ProcessStateMachine();
     }
 
-    public void SetCurrentLookTarget(Vector3 lookTarget) { m_Target_Look = lookTarget; }
+    public void SetCurrentLookTarget(Vector3 lookTarget) { m_HeadAi.lookTarget = lookTarget; }
 	public void SetCurrentMoveTarget(Vector3 moveTarget)
 	{
-		m_Target_Move = moveTarget;
+		m_BodyAi.moveTarget = moveTarget;
 		//GameObject.Find("crosshair").GetComponent<crosshair>().Chase(moveTarget);
 	}
 

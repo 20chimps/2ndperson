@@ -1639,7 +1639,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 139027281}
   - 111: {fileID: 139027283}
-  - 64: {fileID: 139027282}
   m_Layer: 0
   m_Name: fertbagpile01_prp
   m_TagString: Untagged
@@ -1659,19 +1658,6 @@ Transform:
   m_Children:
   - {fileID: 1100039807}
   m_Father: {fileID: 0}
---- !u!64 &139027282
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 139027280}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 0}
 --- !u!111 &139027283
 Animation:
   m_ObjectHideFlags: 0
@@ -6582,33 +6568,6 @@ Prefab:
   m_RootGameObject: {fileID: 2110210022}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &549266834
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100004, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 549266835}
-  m_Layer: 0
-  m_Name: Collada_visual_scene_group 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &549266835
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400004, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 549266834}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 984121515}
-  m_Father: {fileID: 775417655}
 --- !u!1001 &557902539
 Prefab:
   m_ObjectHideFlags: 0
@@ -9839,60 +9798,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 237876780}
   m_GameObject: {fileID: 768996855}
   m_Mesh: {fileID: 4300000, guid: 449d7ed4bc1d8304c9d4bf74b4952629, type: 3}
---- !u!1 &775417654
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100014, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 775417655}
-  m_Layer: 0
-  m_Name: group
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &775417655
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400014, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 775417654}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 549266835}
-  m_Father: {fileID: 777378226}
---- !u!1 &777378225
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100016, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 777378226}
-  m_Layer: 0
-  m_Name: sceneRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &777378226
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400016, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 777378225}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 775417655}
-  m_Father: {fileID: 785184828}
 --- !u!1001 &777987293
 Prefab:
   m_ObjectHideFlags: 0
@@ -10026,33 +9931,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1707434920}
---- !u!1 &785184827
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100006, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 785184828}
-  m_Layer: 0
-  m_Name: Collada_visual_scene_group
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &785184828
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400006, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 785184827}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 777378226}
-  m_Father: {fileID: 1091143597}
 --- !u!1 &786186187
 GameObject:
   m_ObjectHideFlags: 0
@@ -10221,6 +10099,7 @@ GameObject:
   - 4: {fileID: 792409402}
   - 33: {fileID: 792409404}
   - 23: {fileID: 792409403}
+  - 64: {fileID: 792409405}
   m_Layer: 0
   m_Name: fertbagpile01_prp_1
   m_TagString: Untagged
@@ -10268,6 +10147,19 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 1134816025}
   m_GameObject: {fileID: 792409401}
+  m_Mesh: {fileID: 4300000, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
+--- !u!64 &792409405
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 792409401}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
 --- !u!1 &803578726
 GameObject:
@@ -12562,33 +12454,6 @@ Prefab:
   m_RootGameObject: {fileID: 1929087171}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &984121514
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100012, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 984121515}
-  m_Layer: 0
-  m_Name: sceneRoot 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &984121515
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400012, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 984121514}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1831295556}
-  m_Father: {fileID: 549266835}
 --- !u!1 &992230906
 GameObject:
   m_ObjectHideFlags: 0
@@ -13701,49 +13566,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 2055772119}
   m_GameObject: {fileID: 1079044498}
   m_Mesh: {fileID: 4300000, guid: 886cadb5212090043a0b0335df32627c, type: 3}
---- !u!1 &1091143596
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1091143597}
-  - 111: {fileID: 1091143598}
-  m_Layer: 0
-  m_Name: fertbagpile01_prp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1091143597
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1091143596}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.34111309, y: .918208599, z: 3.62857294}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 785184828}
-  m_Father: {fileID: 0}
---- !u!111 &1091143598
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11100000, guid: 43c88ab11f158704ab82e12e1a6ac817,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1091143596}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1100039806
 GameObject:
   m_ObjectHideFlags: 0
@@ -16496,6 +16318,7 @@ GameObject:
   - 4: {fileID: 1344245913}
   - 33: {fileID: 1344245915}
   - 23: {fileID: 1344245914}
+  - 64: {fileID: 1344245916}
   m_Layer: 0
   m_Name: fertbagpile01_prp_1
   m_TagString: Untagged
@@ -16544,6 +16367,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1904602381}
   m_GameObject: {fileID: 1344245912}
   m_Mesh: {fileID: 4300000, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
+--- !u!64 &1344245916
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1344245912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
 --- !u!1 &1350008359
 GameObject:
   m_ObjectHideFlags: 0
@@ -16553,7 +16389,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1350008360}
   - 111: {fileID: 1350008362}
-  - 64: {fileID: 1350008361}
   m_Layer: 0
   m_Name: fertbagpile01_prp
   m_TagString: Untagged
@@ -16573,19 +16408,6 @@ Transform:
   m_Children:
   - {fileID: 1902374532}
   m_Father: {fileID: 0}
---- !u!64 &1350008361
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1350008359}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 0}
 --- !u!111 &1350008362
 Animation:
   m_ObjectHideFlags: 0
@@ -19648,7 +19470,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .0500000007
@@ -19940,6 +19762,7 @@ GameObject:
   - 4: {fileID: 1619476098}
   - 33: {fileID: 1619476097}
   - 23: {fileID: 1619476096}
+  - 64: {fileID: 1619476099}
   m_Layer: 9
   m_Name: mainRoof
   m_TagString: Untagged
@@ -19988,6 +19811,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 299831029}
+--- !u!64 &1619476099
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619476095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300004, guid: 453bb3fbb2d7dd5469fe99f0793b8344, type: 3}
 --- !u!1001 &1623276458
 Prefab:
   m_ObjectHideFlags: 0
@@ -22497,33 +22333,6 @@ Transform:
   m_Children:
   - {fileID: 965300556}
   m_Father: {fileID: 73228683}
---- !u!1 &1831295555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100010, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1831295556}
-  m_Layer: 0
-  m_Name: group_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1831295556
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400010, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1831295555}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2114867932}
-  m_Father: {fileID: 984121515}
 --- !u!1 &1831504321
 GameObject:
   m_ObjectHideFlags: 0
@@ -26671,32 +26480,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1532483980}
   m_GameObject: {fileID: 2110446148}
   m_Mesh: {fileID: 4300002, guid: 886cadb5212090043a0b0335df32627c, type: 3}
---- !u!1 &2114867931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2114867932}
-  m_Layer: 0
-  m_Name: fertbagpile01_prp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2114867932
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: 43c88ab11f158704ab82e12e1a6ac817, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2114867931}
-  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1831295556}
 --- !u!1001 &2116904924
 Prefab:
   m_ObjectHideFlags: 0

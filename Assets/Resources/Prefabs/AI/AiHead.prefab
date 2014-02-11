@@ -47,8 +47,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
-  far clip plane: 1000
+  near clip plane: .0500000007
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -85,9 +85,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9284a8241aedd004998b2fbb7bdb77e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Body: {fileID: 0}
+  parent: {fileID: 0}
   m_Pitch: {fileID: 0}
   m_Yaw: {fileID: 0}
+  lookTarget: {x: 0, y: 0, z: 0}
+  lookEnable: 0
+  lookingAtTarget: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

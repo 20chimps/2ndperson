@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
 		cameraPosition = AiController.instance.m_Head.camera.transform.position;
 
-		Vector3 xzV = moveDirection;
+		Vector3 xzV = /*moveDirection*/characterController.velocity;
 		//xzV.y = 0;
 		float moveVibration = xzV.magnitude;
 		if (moveVibration > 1) moveVibration = 1;
