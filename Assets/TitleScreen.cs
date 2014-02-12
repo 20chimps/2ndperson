@@ -28,24 +28,21 @@ public class TitleScreen : MonoBehaviour
 	private EFlyThroughStates currentState = EFlyThroughStates.Title;
 	private float timeElapsed;
 
-
-	public TitleScreen()
+	void Start()
 	{
-		waitTimes[(int)EFlyThroughStates.Title]			= 1.0f;
-		waitTimes[(int)EFlyThroughStates.Highscores]	= 1.0f;
-		waitTimes[(int)EFlyThroughStates.Controls]		= 1.0f;
-		waitTimes[(int)EFlyThroughStates.Robot]			= 1.0f;
-		waitTimes[(int)EFlyThroughStates.Window]		= 1.0f;
+		waitTimes[(int)EFlyThroughStates.Title]			= 15.0f;
+		waitTimes[(int)EFlyThroughStates.Highscores]	= 15.0f;
+		waitTimes[(int)EFlyThroughStates.Controls]		= 15.0f;
+		waitTimes[(int)EFlyThroughStates.Robot]			= 15.0f;
+		waitTimes[(int)EFlyThroughStates.Window]		= 15.0f;
 
 		pages[(int)EFlyThroughStates.Title] = titlePage;
 		pages[(int)EFlyThroughStates.Highscores] = highscoresPage;
 		pages[(int)EFlyThroughStates.Controls] = controlsPage;
 		pages[(int)EFlyThroughStates.Robot] = robotPage;
 		pages[(int)EFlyThroughStates.Window] = windowPage;
-	}
+		SetPage(EFlyThroughStates.Title);
 
-	void Start()
-	{
 		playerStates = new MenuControl.ControllerState[CGame.maxPlayers];
 		for (int i = 0; i < CGame.maxPlayers; ++i)
 		{
@@ -55,9 +52,14 @@ public class TitleScreen : MonoBehaviour
 
 	void Update()
 	{
+		if(Input.GetKeyUp(KeyCode.P))
+		{
+			timeElapsed = waitTimes[(int)currentState];
+		}
+
 		timeElapsed += Time.deltaTime;
 
-		if (timeElapsed > waitTimes[(int)currentState])
+		if (timeElapsed >= waitTimes[(int)currentState])
 		{
 			timeElapsed = 0.0f;
 
@@ -65,8 +67,9 @@ public class TitleScreen : MonoBehaviour
 			if (currentState >= EFlyThroughStates.Max)
 			{
 				currentState = EFlyThroughStates.Title;
-				SetPage(pages[(int)currentState]);
 			}
+
+			SetPage(currentState);
 		}
 
 		switch (currentState)
@@ -143,13 +146,13 @@ public class TitleScreen : MonoBehaviour
 		}
 	}
 
-	void SetPage(GameObject page)
+	void SetPage(EFlyThroughStates page)
 	{
-		Debug.Log(page);
 		foreach (GameObject go in pages)
 		{
-			if (go == page)
+			if (go == pages[(int)page])
 			{
+				Debug.Log(page);
 				go.SetActive(true);
 				continue;
 			}
