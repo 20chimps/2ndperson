@@ -220,6 +220,7 @@ public class CharacterSelectScreen : MonoBehaviour
 	public void AddPlayer(int i)
 	{
 		GameObject arrowGo = Instantiate(Resources.Load("Prefabs/UI/Arrow")) as GameObject;
+		playersPlaying[i] = true;
 		arrows[i] = arrowGo.GetComponent<Arrow>();
 		playerLabels[i].gameObject.SetActive(true);
 		playerStartLabels[i].gameObject.SetActive(false);
