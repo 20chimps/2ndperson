@@ -270,16 +270,16 @@ public class PlayerController : MonoBehaviour
 		body.velocity = pushDir * pushPower;
 	}
 
-	public void OnDrawGizmos()
-	{
-		if (AiController.instance)
-		{
-			float cameraRadius = AiController.instance.m_Body.transform.collider.bounds.extents.magnitude;
-			cameraPosition = AiController.instance.m_Head.camera.transform.position;
-
-			Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
-			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(cameraPosition, cameraRadius);
-		}
-	}
+//	public void OnDrawGizmos()
+//	{
+//		if (AiController.instance)
+//		{
+//			float cameraRadius = AiController.instance.m_Body.transform.collider.bounds.extents.magnitude;
+//			cameraPosition = AiController.instance.m_Head.camera.transform.position;
+//
+//			Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
+//			Gizmos.color = Color.red;
+//			Gizmos.DrawWireSphere(cameraPosition, cameraRadius);
+//		}
+//	}
 }

@@ -13,7 +13,7 @@ public class GamOverScreen : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed)
+		if (InputDevice.GetStart(0) || InputDevice.GetStart(1))
         {
             // start transition
 			CGame.Singleton.currentState = CGame.EGameState.Title;
