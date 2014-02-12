@@ -4,7 +4,13 @@ using System.Collections.Generic;
 
 public class TitleScreen : MonoBehaviour 
 {
-	public MenuControl.ControllerState[] playerStates;
+	public GameObject titlePage;
+	public GameObject highscoresPage;
+	public GameObject controlsPage;
+	public GameObject robotPage;
+	public GameObject windowPage;
+
+	private MenuControl.ControllerState[] playerStates;
 
 	void Start()
 	{
