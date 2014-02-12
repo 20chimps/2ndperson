@@ -137,7 +137,7 @@ InputManager:
     descriptiveName: also Confirm
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: '[1]'
+    positiveButton: insert
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -153,7 +153,7 @@ InputManager:
     descriptiveName: also Cancel
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: '[2]'
+    positiveButton: home
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -169,7 +169,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: '[3]'
+    positiveButton: page up
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -185,7 +185,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: '[4]'
+    positiveButton: delete
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -217,7 +217,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: '[0]'
+    positiveButton: end
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
