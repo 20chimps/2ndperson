@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class Kitchen : MonoBehaviour 
 {
-    const int maxCharacters = 4;
+    const int maxCharacters = 2;
 
 #pragma warning disable 0414 // playerCount unsused
     private int playerCount = 0;
@@ -40,11 +40,8 @@ public class Kitchen : MonoBehaviour
 			{
 				GameObject playerGO = null;
 
-
-				int rand = 0;
-				rand = Random.Range(0, maxCharacters);
-
-
+				//int rand = 0;
+				//rand = Random.Range(0, maxCharacters);
 				//PlayerController.EPropType type = (PlayerController.EPropType)rand;
 				//playerGO = Instantiate(Resources.Load("Characters/Sponge")) as GameObject;
 
@@ -65,8 +62,6 @@ public class Kitchen : MonoBehaviour
 				players.Add(playerGO.GetComponent<PlayerController>());
 
 				playerGO.GetComponent<CDeathSequence>().EventSequenceEnd += OnDeathSequenceEnd;
-
-				i++;
 			}
 		}
 

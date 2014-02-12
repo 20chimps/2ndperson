@@ -707,7 +707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &59162087
 Transform:
   m_ObjectHideFlags: 0
@@ -4650,7 +4650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &408102242
 Transform:
   m_ObjectHideFlags: 0
@@ -5020,7 +5020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &444013236
 Transform:
   m_ObjectHideFlags: 0
@@ -6300,7 +6300,7 @@ GUIText:
   m_GameObject: {fileID: 543930571}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: HIGH-SCORES
+  m_Text: L2P WINDOW
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -14013,7 +14013,7 @@ GUIText:
   m_GameObject: {fileID: 1202115238}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: HIGH-SCORES
+  m_Text: L2P CONTROLS
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -17908,7 +17908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1562272253
 Transform:
   m_ObjectHideFlags: 0
@@ -23209,7 +23209,7 @@ GUIText:
   m_GameObject: {fileID: 2008481523}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: HIGH-SCORES
+  m_Text: L2P ROBOT
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
