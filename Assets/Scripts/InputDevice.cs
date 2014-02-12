@@ -78,44 +78,44 @@ public class InputDevice : MonoBehaviour
 	{
 		if (player == 0)
 		{
-			return Input.GetButton("P1Fire1");
+			return Input.GetButton("P1Start");
 		}
-		return Input.GetButton("P2Fire1");
+		return Input.GetButton("P2Start");
 	}
 
 	public static bool GetA(int player)
 	{
 		if (player == 0)
 		{
-			return Input.GetButton("P1Fire1");
+			return Input.GetButton("P1Jump");
 		}
-		return Input.GetButton("P2Fire1");
+		return Input.GetButton("P2Jump");
 	}
 
 	public static bool GetB(int player)
 	{
 		if (player == 0)
 		{
-			return Input.GetButton("P1Fire2");
+			return Input.GetButton("P1Climb");
 		}
-		return Input.GetButton("P2Fire2");
+		return Input.GetButton("P2Climb");
 	}
 
 	public static bool GetC(int player)
 	{
 		if (player == 0)
 		{
-			return Input.GetButton("P1Fire3");
+			return Input.GetButton("P1Sneak");
 		}
-		return Input.GetButton("P2Fire3");
+		return Input.GetButton("P2Sneak");
 	}
 
 	public static bool GetD(int player)
 	{
 		if (player == 0)
 		{
-			return Input.GetButton("P1Fire4");
+			return Input.GetButton("P1Shake");
 		}
-		return Input.GetButton("P2Fire4");
+		return Input.GetButton("P2Shake");
 	}
 }
