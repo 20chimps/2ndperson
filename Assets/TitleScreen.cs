@@ -19,12 +19,12 @@ public class TitleScreen : MonoBehaviour
 	{
 		bool playerReady = false;
 
-		if (Input.GetButtonDown("P1Start"))
+		if (InputDevice.GetStart(0))
 		{
 			playerStates[0] = MenuControl.ControllerState.READY;
 			playerReady = true;
 		}
-		if (Input.GetButtonDown("P2Start"))
+		if (InputDevice.GetStart(1))
 		{
 			playerStates[1] = MenuControl.ControllerState.READY;
 			playerReady = true;

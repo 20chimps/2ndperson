@@ -78,9 +78,9 @@ public class InputDevice : MonoBehaviour
 	{
 		if (player == 0)
 		{
-			return Input.GetButton("P1Start");
+			return Input.GetButton("P1Fire1");
 		}
-		return Input.GetButton("P2Start");
+		return Input.GetButton("P2Fire1");
 	}
 
 	public static bool GetA(int player)

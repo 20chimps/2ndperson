@@ -59,17 +59,17 @@ public class CharacterSelectScreen : MonoBehaviour
 	void Update () 
 	{
 		// Check if player joins
-		if (!playersPlaying[0] && Input.GetButtonDown("P1Start"))
+		if (!playersPlaying[0] && InputDevice.GetStart(0))
 		{
 			AddPlayer(0);
 		}
-		if (!playersPlaying[1] && Input.GetButtonDown("P2Start"))
+		if (!playersPlaying[1] && InputDevice.GetStart(1))
 		{
 			AddPlayer(1);
 		}
 
 		// P1 Input
-		float movement = Input.GetAxis("P1Horizontal");
+		float movement = InputDevice.GetAxisX(0);
 		if(movement == 0.0f)
 		{
 			movedStick[0] = false;
@@ -96,7 +96,7 @@ public class CharacterSelectScreen : MonoBehaviour
 		// Check if P1 wants to ready up
 		if (readyPlayers[0] == MenuControl.ControllerState.NOTREADY)
 		{
-			if (Input.GetButton("P1Fire1"))
+			if (InputDevice.GetA(0))
 			{
 				readyPlayers[0] = MenuControl.ControllerState.READY;
 			}
@@ -105,7 +105,7 @@ public class CharacterSelectScreen : MonoBehaviour
 		// Or Go back from ready
 		else if (readyPlayers[0] == MenuControl.ControllerState.READY)
 		{
-			if (Input.GetButton("P1Fire2"))
+			if (InputDevice.GetA(1))
 			{
 				readyPlayers[0] = MenuControl.ControllerState.NOTREADY;
 			}
@@ -113,7 +113,7 @@ public class CharacterSelectScreen : MonoBehaviour
 
 
 		// P2 Input
-		movement = Input.GetAxis("P2Horizontal");
+		movement = InputDevice.GetAxisX(1);
 		if (movement == 0.0f)
 		{
 			movedStick[1] = false;
