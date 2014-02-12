@@ -4,13 +4,38 @@ using System.Collections.Generic;
 
 public class TitleScreen : MonoBehaviour 
 {
+	private enum EFlyThroughStates
+	{
+		Title = 0,
+		Highscores,
+		Controls,
+		Robot,
+		Window,
+
+		Max,
+	}
+
 	public GameObject titlePage;
 	public GameObject highscoresPage;
 	public GameObject controlsPage;
 	public GameObject robotPage;
 	public GameObject windowPage;
+	public GameObject pressStartLabels;
 
 	private MenuControl.ControllerState[] playerStates;
+
+	private float timeElapsed;
+
+	private float[] waitTimes = new float[(int)EFlyThroughStates.Max];
+
+	public TitleScreen()
+	{
+		waitTimes[(int)EFlyThroughStates.Title] = 0.0f;
+		waitTimes[(int)EFlyThroughStates.Highscores] = 0.0f;
+		waitTimes[(int)EFlyThroughStates.Controls] = 0.0f;
+		waitTimes[(int)EFlyThroughStates.Robot] = 0.0f;
+	}
+
 
 	void Start()
 	{
