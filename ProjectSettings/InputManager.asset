@@ -37,13 +37,13 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: P1Fire1
-    descriptiveName: 
+    m_Name: P1Jump
+    descriptiveName: also Confirm
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: z
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: joystick button 0
     gravity: 1000
     dead: .00100000005
     sensitivity: 1000
@@ -53,8 +53,8 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: P1Fire2
-    descriptiveName: 
+    m_Name: P1Climb
+    descriptiveName: also Cancel
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: x
@@ -69,7 +69,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: P1Fire3
+    m_Name: P1Sneak
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -85,11 +85,11 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: P1Jump
+    m_Name: P1Shake
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 3
+    positiveButton: v
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -133,8 +133,8 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P2Fire1
-    descriptiveName: 
+    m_Name: P2Jump
+    descriptiveName: also Confirm
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: '[1]'
@@ -149,8 +149,8 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P2Fire2
-    descriptiveName: 
+    m_Name: P2Climb
+    descriptiveName: also Cancel
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: '[2]'
@@ -165,7 +165,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P2Fire3
+    m_Name: P2Sneak
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -181,11 +181,11 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P2Jump
+    m_Name: P2Shake
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 3
+    positiveButton: '[4]'
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -201,7 +201,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 7
+    positiveButton: b
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -211,13 +211,13 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P2Start
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 3
+    positiveButton: '[0]'
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
