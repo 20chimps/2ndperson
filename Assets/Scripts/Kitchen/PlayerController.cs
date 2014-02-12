@@ -274,13 +274,12 @@ public class PlayerController : MonoBehaviour
 	{
 		if (AiController.instance)
 		{
-			Debug.Log("a");
-			float cameraRadius = AiController.instance.m_Body.transform.collider.bounds.extents.magnitude;
-			cameraPosition = AiController.instance.m_Head.camera.transform.position;
+			//float cameraRadius = AiController.instance.m_Body.transform.collider.bounds.extents.magnitude;
+			//cameraPosition = AiController.instance.m_Head.camera.transform.position;
 
 			Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
 			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(cameraPosition, cameraRadius);
+			//Gizmos.DrawWireSphere(cameraPosition, cameraRadius);
 		}
 	}
 }
