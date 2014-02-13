@@ -4,22 +4,41 @@ using XInputDotNetPure;
 
 public class GamOverScreen : MonoBehaviour 
 {
+	bool[] playersPlaying;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		playersPlaying = CGame.Singleton.readyPlayers;	
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-		if (InputDevice.GetStart(0) || InputDevice.GetStart(1))
-        {
-            // start transition
-			CGame.Singleton.currentState = CGame.EGameState.Title;
-            Application.LoadLevel("titleV2");
-            return;
-        }
-	
+		if (playersPlaying[0]) 
+		{
+			if (InputDevice.GetStart(0))
+	        {
+	            // start transition
+				Restart();
+	        }
+		}
+
+		if (playersPlaying[1]) 
+		{
+			if (InputDevice.GetStart(1))
+			{
+				// start transition
+				Restart();
+			}
+		}	
+	}
+
+	void Restart()
+	{
+		// TODO: give score to players playing here
+
+		CGame.Singleton.currentState = CGame.EGameState.Title;
+		Application.LoadLevel("titleV2");
 	}
 }
