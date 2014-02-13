@@ -68,10 +68,11 @@ public class CharacterSelectScreen : MonoBehaviour
 			AddPlayer(1);
 		}
 
+		float movement;
 		if (playersPlaying[0])
 		{
 			// P1 Input
-			float movement = InputDevice.GetAxisX(0);
+			movement = InputDevice.GetAxisX(0);
 			if(movement == 0.0f)
 			{
 				movedStick[0] = false;
