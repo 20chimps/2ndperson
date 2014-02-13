@@ -68,93 +68,97 @@ public class CharacterSelectScreen : MonoBehaviour
 			AddPlayer(1);
 		}
 
-		// P1 Input
-		float movement = InputDevice.GetAxisX(0);
-		if(movement == 0.0f)
+		if (playersPlaying[0])
 		{
-			movedStick[0] = false;
+			// P1 Input
+			float movement = InputDevice.GetAxisX(0);
+			if(movement == 0.0f)
+			{
+				movedStick[0] = false;
+			}
+			if(movedStick[0] == false)
+			{
+				if (movement == 0.0f)
+				{
+				}
+				else if (movement > 0.001f)
+				{
+					propSelections[0] = SelectRight(propSelections[0], 1);
+					MoveArrow(0);
+					movedStick[0] = true;
+				}
+				else if(movement < 0.001f)
+				{
+					propSelections[0] = SelectLeft(propSelections[0], 1);
+					MoveArrow(0);
+					movedStick[0] = true;
+				}
+			}
+
+			// Check if P1 wants to ready up
+			if (readyPlayers[0] == MenuControl.ControllerState.NOTREADY)
+			{
+				if (InputDevice.GetA(0))
+				{
+					readyPlayers[0] = MenuControl.ControllerState.READY;
+				}
+			}
+
+			// Or Go back from ready
+			else if (readyPlayers[0] == MenuControl.ControllerState.READY)
+			{
+				if (InputDevice.GetA(0))
+				{
+					readyPlayers[0] = MenuControl.ControllerState.NOTREADY;
+				}
+			}
 		}
-		if(movedStick[0] == false)
+
+		if (playersPlaying[1])
 		{
+			// P2 Input
+			movement = InputDevice.GetAxisX(1);
 			if (movement == 0.0f)
 			{
+				movedStick[1] = false;
 			}
-			else if (movement > 0.001f)
+			if (movedStick[1] == false)
 			{
-				propSelections[0] = SelectRight(propSelections[0], 1);
-				MoveArrow(0);
-				movedStick[0] = true;
+				if (movement == 0.0f)
+				{
+				}
+				else if (movement > 0.001f)
+				{
+					propSelections[1] = SelectRight(propSelections[1], 0);
+					MoveArrow(1);
+					movedStick[1] = true;
+				}
+				else if (movement < 0.001f)
+				{
+					propSelections[1] = SelectLeft(propSelections[1], 0);
+					MoveArrow(1);
+					movedStick[1] = true;
+				}
 			}
-			else if(movement < 0.001f)
+
+			// Check if P2 wants to ready up
+			if (readyPlayers[1] == MenuControl.ControllerState.NOTREADY)
 			{
-				propSelections[0] = SelectLeft(propSelections[0], 1);
-				MoveArrow(0);
-				movedStick[0] = true;
+				if (InputDevice.GetA(1))
+			    {
+			        readyPlayers[1] = MenuControl.ControllerState.READY;
+			    }
+			}
+
+			// Or Go back from ready
+			else if (readyPlayers[1] == MenuControl.ControllerState.READY)
+			{
+				if (InputDevice.GetA(1))
+			    {
+			        readyPlayers[1] = MenuControl.ControllerState.NOTREADY;
+			    }
 			}
 		}
-
-		// Check if P1 wants to ready up
-		if (readyPlayers[0] == MenuControl.ControllerState.NOTREADY)
-		{
-			if (InputDevice.GetA(0))
-			{
-				readyPlayers[0] = MenuControl.ControllerState.READY;
-			}
-		}
-
-		// Or Go back from ready
-		else if (readyPlayers[0] == MenuControl.ControllerState.READY)
-		{
-			if (InputDevice.GetA(0))
-			{
-				readyPlayers[0] = MenuControl.ControllerState.NOTREADY;
-			}
-		}
-
-
-		// P2 Input
-		movement = InputDevice.GetAxisX(1);
-		if (movement == 0.0f)
-		{
-			movedStick[1] = false;
-		}
-		if (movedStick[1] == false)
-		{
-			if (movement == 0.0f)
-			{
-			}
-			else if (movement > 0.001f)
-			{
-				propSelections[1] = SelectRight(propSelections[1], 0);
-				MoveArrow(1);
-				movedStick[1] = true;
-			}
-			else if (movement < 0.001f)
-			{
-				propSelections[1] = SelectLeft(propSelections[1], 0);
-				MoveArrow(1);
-				movedStick[1] = true;
-			}
-		}
-
-		// Check if P2 wants to ready up
-		if (readyPlayers[1] == MenuControl.ControllerState.NOTREADY)
-		{
-			if (InputDevice.GetA(1))
-		    {
-		        readyPlayers[1] = MenuControl.ControllerState.READY;
-		    }
-		}
-
-		// Or Go back from ready
-		else if (readyPlayers[1] == MenuControl.ControllerState.READY)
-		{
-			if (InputDevice.GetA(1))
-		    {
-		        readyPlayers[1] = MenuControl.ControllerState.NOTREADY;
-		    }
-		}
-
 
 		// Check if all ready
 		int numPlayers = 0;
