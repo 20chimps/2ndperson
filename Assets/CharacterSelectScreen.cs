@@ -105,7 +105,7 @@ public class CharacterSelectScreen : MonoBehaviour
 		// Or Go back from ready
 		else if (readyPlayers[0] == MenuControl.ControllerState.READY)
 		{
-			if (InputDevice.GetA(1))
+			if (InputDevice.GetA(0))
 			{
 				readyPlayers[0] = MenuControl.ControllerState.NOTREADY;
 			}
@@ -137,23 +137,23 @@ public class CharacterSelectScreen : MonoBehaviour
 			}
 		}
 
-		//// Check if P2 wants to ready up
-		//if (readyPlayers[1] == MenuControl.ControllerState.NOTREADY)
-		//{
-		//    if (Input.GetButton("P2Fire1"))
-		//    {
-		//        readyPlayers[1] = MenuControl.ControllerState.READY;
-		//    }
-		//}
+		// Check if P2 wants to ready up
+		if (readyPlayers[1] == MenuControl.ControllerState.NOTREADY)
+		{
+			if (InputDevice.GetA(1))
+		    {
+		        readyPlayers[1] = MenuControl.ControllerState.READY;
+		    }
+		}
 
-		//// Or Go back from ready
-		//else if (readyPlayers[1] == MenuControl.ControllerState.READY)
-		//{
-		//    if (Input.GetButton("P2Fire2"))
-		//    {
-		//        readyPlayers[1] = MenuControl.ControllerState.NOTREADY;
-		//    }
-		//}
+		// Or Go back from ready
+		else if (readyPlayers[1] == MenuControl.ControllerState.READY)
+		{
+			if (InputDevice.GetA(1))
+		    {
+		        readyPlayers[1] = MenuControl.ControllerState.NOTREADY;
+		    }
+		}
 
 
 		// Check if all ready
