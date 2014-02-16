@@ -62,7 +62,6 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400002}
   - 82: {fileID: 8200002}
-  - 96: {fileID: 9600000}
   m_Layer: 12
   m_Name: Mug
   m_TagString: Player
@@ -94,6 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 95: {fileID: 9500002}
+  - 96: {fileID: 9600000}
   m_Layer: 0
   m_Name: mug
   m_TagString: Untagged
@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: -.414848655, z: 0, w: .909890473}
-  m_LocalPosition: {x: -2.48867369, y: 1.09646153, z: -4.66137075}
+  m_LocalPosition: {x: -4.17876053, y: .0318222046, z: -.0911853313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400010}
@@ -364,7 +364,7 @@ TrailRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
+  m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

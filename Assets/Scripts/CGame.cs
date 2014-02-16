@@ -10,9 +10,18 @@ public class CGame : MonoBehaviour
 		Title,
 		CharacterSelect,
 		Kitchen,
+		Gameover,
+	}
+
+	public enum EWinState
+	{
+		Win,
+		Lose,
+		HighscoreBeaten,
 	}
 
 	public EGameState currentState = EGameState.Kitchen;
+	public EWinState winState = EWinState.Win;
 
     static CGame gameInstance;
     public static CGame Singleton
@@ -41,6 +50,20 @@ public class CGame : MonoBehaviour
 
     public List<PlayerController> players;
 
+	private HighscoreData highscoreData;
+	public HighscoreData HighscoreData
+	{
+		get { return highscoreData; }
+		set { highscoreData = value; }
+	}
+
+	private float highscoreTimer;
+	public float HighscoreTimer
+	{
+		get { return highscoreTimer; }
+		set { highscoreTimer = value; }
+	}
+
     static bool initialised = false;
 
     public void Awake()
@@ -48,6 +71,9 @@ public class CGame : MonoBehaviour
         if (!initialised)
         {
             gameInstance = gameObject.GetComponent<CGame>();
+
+			InitialiseHighscores();
+
             DontDestroyOnLoad(gameInstance.gameObject);
             initialised = true;
         }
@@ -56,6 +82,17 @@ public class CGame : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+	private void InitialiseHighscores()
+	{
+		highscoreData = Transform.FindObjectOfType<HighscoreData>();
+		if (highscoreData == null)
+		{
+			GameObject go = Instantiate(Resources.Load("Prefabs/HighscoreData")) as GameObject;
+			highscoreData = go.GetComponent<HighscoreData>();
+		}
+		LoadData();
+	}
 	
 	public void SetWinner(PlayerController _Player)
 	{
@@ -72,6 +109,118 @@ public class CGame : MonoBehaviour
 			{
 				Application.LoadLevel("victory");
 			}
+		}
+	}
+
+
+	public bool HasScoreBeenBeaten(int players, float time)
+	{
+		return (highscoreData.HasScoreBeenBeaten(players, time));
+	}
+
+	public void SetNewHighscore(int players, Highscore score)
+	{
+		highscoreData.SetNewScore(players, score);
+		SaveData();
+	}
+
+	[ContextMenu("TimeTest")]
+	public void Test()
+	{
+		double second = 1.0 ;
+		double milisecond = second * 0.001;
+		double minute = second * 60.0f;
+
+		double numSeconds = 24.0;
+		double numMiliseconds = 987;
+		double numMinutes = 37.0;
+
+		System.TimeSpan time = System.TimeSpan.FromSeconds(((minute * numMinutes)) + ((second * numSeconds)) + ((milisecond * numMiliseconds)));
+		double removeThousand = numMiliseconds % 1000.0f;
+		double removeHundred = numMiliseconds % 100.0f;
+
+		Debug.Log(removeHundred);
+		Debug.Log(removeThousand);
+		Debug.Log("Min: " + time.Minutes.ToString("D2"));
+		Debug.Log("Sec: " + time.Seconds.ToString("D2"));
+		Debug.Log("MS: " + ((int)(time.Milliseconds * 0.01f)).ToString("D2"));
+		Debug.Log("MSS: " + ((int)removeHundred).ToString("D2"));
+	}
+
+
+	[ContextMenu("SaveTest")]
+	public void SaveData()
+	{
+		LevelSerializer.SaveObjectTreeToFile("highscores" + ".scores", highscoreData.gameObject);
+	}
+
+	[ContextMenu("POP")]
+	public void PopulateSomeData()
+	{
+		List<Highscore> player1Scores = highscoreData.GetHighScoreList(0);
+		player1Scores.Add(new Highscore("JAD", 659.99, 1));
+		player1Scores.Add(new Highscore("MAN", 659.99, 1));
+		player1Scores.Add(new Highscore("MUG", 659.99, 1));
+		player1Scores.Add(new Highscore("SCT", 659.99, 1));
+		player1Scores.Add(new Highscore("SOT", 659.99, 1));
+		player1Scores.Add(new Highscore("KIT", 659.99, 1));
+		player1Scores.Add(new Highscore("JIM", 659.99, 1));
+		player1Scores.Add(new Highscore("SPG", 659.99, 1));
+		player1Scores.Add(new Highscore("CLK", 659.99, 1));
+		player1Scores.Add(new Highscore("MUG", 659.99, 1));
+
+		List<Highscore> player2Scores = highscoreData.GetHighScoreList(1);
+		player2Scores.Add(new Highscore("CAN & JAD", 659.99, 1));
+		player2Scores.Add(new Highscore("MUG & TOM", 659.99, 1));
+		player2Scores.Add(new Highscore("KIT & SPE", 659.99, 1));
+		player2Scores.Add(new Highscore("DST & SCT", 659.99, 1));
+		player2Scores.Add(new Highscore("MUG & MAN", 659.99, 1));
+		player2Scores.Add(new Highscore("KIM & SPE", 659.99, 1));
+		player2Scores.Add(new Highscore("MUG & BOB", 659.99, 1));
+		player2Scores.Add(new Highscore("JIM & SPE", 659.99, 1));
+		player2Scores.Add(new Highscore("SPE & NAT", 659.99, 1));
+		player2Scores.Add(new Highscore("SIM & MAT", 659.99, 1));
+	}
+
+
+
+	[ContextMenu("LoadTest")]
+	public void LoadData()
+	{
+
+		if (currentState == EGameState.Title)
+		{
+			try
+			{
+				LevelSerializer.LoadObjectTreeFromFile("highscores" + ".scores");
+			}
+			catch (System.IO.FileNotFoundException)
+			{
+				if (highscoreData.GetHighScoreList(0).Count < 10)
+				{
+					// Nothing is saved.
+					// Populate it.
+					PopulateSomeData();
+					highscoreData.SortListsAscending();
+					SaveData();
+				
+					Debug.Log("NEWGAME");
+				}
+			}
+
+			highscoreData.SortListsAscending();
+
+			//List<Highscore> scores = highscoreData.GetHighScoreList(0);
+			//foreach (Highscore score in scores)
+			//{
+			//    Debug.Log(score);
+			//}
+
+			//scores = highscoreData.GetHighScoreList(1);
+			//foreach (Highscore score in scores)
+			//{
+			//    Debug.Log(score);
+			//}
 		}
 	}
 }

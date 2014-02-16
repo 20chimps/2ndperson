@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using XInputDotNetPure;
 
 public class GamOverScreen : MonoBehaviour 
 {
@@ -39,6 +38,6 @@ public class GamOverScreen : MonoBehaviour
 		// TODO: give score to players playing here
 
 		CGame.Singleton.currentState = CGame.EGameState.Title;
-		Application.LoadLevel("titleV2");
+		Application.LoadLevel("title");
 	}
 }

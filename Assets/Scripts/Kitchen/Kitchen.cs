@@ -6,9 +6,10 @@ using System.Collections.Generic;
 
 public class Kitchen : MonoBehaviour 
 {
+	public GUIText timer;
+
     const int maxCharacters = 2;
 
-#pragma warning disable 0414 // playerCount unsused
     private int playerCount = 0;
 
     public bool gameWon;
@@ -18,7 +19,7 @@ public class Kitchen : MonoBehaviour
 
     private int deaths;
 
-    private float waitTime = 2.5f;
+    private float waitTime = 1.5f;
     private float timeAccum;
 
 	// Use this for initialization
@@ -62,36 +63,57 @@ public class Kitchen : MonoBehaviour
 				players.Add(playerGO.GetComponent<PlayerController>());
 
 				playerGO.GetComponent<CDeathSequence>().EventSequenceEnd += OnDeathSequenceEnd;
+
+				playerCount++;
 			}
 		}
 
 
         CGame.Singleton.players = players;
 
-
+		CGame.Singleton.HighscoreTimer = 0.0f;
 	}
 
 	// Update is called once per frame
 	void Update () 
     {
-        if (gameWon || gameLost)
-        {
-            timeAccum += Time.deltaTime;
-            //Debug.Log(timeAccum);
-            if (timeAccum >= waitTime)
-            {
-                if (gameWon)
-                {
-                    Application.LoadLevel("victory");
-                    return;
-                }
-                else if (gameLost)
-                {
-                    Application.LoadLevel("defeat");
-                    return;
-                }
-            }
-        }
+		if (gameWon || gameLost)
+		{
+			timeAccum += Time.deltaTime;
+			//Debug.Log(timeAccum);
+			if (timeAccum >= waitTime)
+			{
+				CGame.Singleton.currentState = CGame.EGameState.Gameover;
+
+				if (gameWon)
+				{
+					if (CGame.Singleton.HasScoreBeenBeaten(playerCount, CGame.Singleton.HighscoreTimer))
+					{
+						CGame.Singleton.winState = CGame.EWinState.HighscoreBeaten;
+						Application.LoadLevel("gameOver");
+						return;
+					}
+					else
+					{
+						CGame.Singleton.winState = CGame.EWinState.Win;
+						Application.LoadLevel("gameOver");
+						return;
+					}
+				}
+				else if (gameLost)
+				{
+					CGame.Singleton.winState = CGame.EWinState.Lose;
+					Application.LoadLevel("gameOver");
+					return;
+				}
+			}
+		}
+		else
+		{
+			CGame.Singleton.HighscoreTimer += Time.deltaTime;
+			System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(CGame.Singleton.HighscoreTimer);
+			timer.text = timeSpan.Minutes.ToString("D2") + ":" + timeSpan.Seconds.ToString("D2") + ":" + (Mathf.FloorToInt(timeSpan.Milliseconds * 0.1f)).ToString("D2");
+		}
 
         if (Input.GetKeyUp(KeyCode.F1))
         {

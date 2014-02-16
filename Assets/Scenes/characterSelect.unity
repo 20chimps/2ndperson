@@ -89,7 +89,6 @@ GameObject:
   - 143: {fileID: 4415520}
   - 54: {fileID: 4415519}
   - 82: {fileID: 4415518}
-  - 96: {fileID: 4415517}
   m_Layer: 12
   m_Name: Sponge
   m_TagString: Player
@@ -103,7 +102,7 @@ TrailRenderer:
   m_PrefabParentObject: {fileID: 9600000, guid: 1ad65fa4ee148674a9359eb9359e9ebd,
     type: 2}
   m_PrefabInternal: {fileID: 1465151330}
-  m_GameObject: {fileID: 4415516}
+  m_GameObject: {fileID: 401630184}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -345,10 +344,10 @@ Transform:
   m_PrefabInternal: {fileID: 1465151330}
   m_GameObject: {fileID: 4415516}
   m_LocalRotation: {x: 0, y: -.933205307, z: 0, w: .359343737}
-  m_LocalPosition: {x: -2.77441692, y: 1.05598605, z: -4.55813265}
+  m_LocalPosition: {x: -2.77441692, y: 1.08000004, z: -4.55813265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 401630185}
+  - {fileID: 515601217}
   m_Father: {fileID: 0}
 --- !u!1 &4522688
 GameObject:
@@ -4689,7 +4688,6 @@ GameObject:
   - 54: {fileID: 377337328}
   - 114: {fileID: 377337327}
   - 82: {fileID: 377337326}
-  - 96: {fileID: 377337325}
   m_Layer: 12
   m_Name: Mug
   m_TagString: Player
@@ -4704,7 +4702,7 @@ Transform:
   m_PrefabInternal: {fileID: 1895343525}
   m_GameObject: {fileID: 377337323}
   m_LocalRotation: {x: 0, y: -.414848655, z: 0, w: .909890473}
-  m_LocalPosition: {x: -2.48867369, y: 1.09646153, z: -4.66137075}
+  m_LocalPosition: {x: -2.48867369, y: 1.08000004, z: -4.66137075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 540996018}
@@ -4715,7 +4713,7 @@ TrailRenderer:
   m_PrefabParentObject: {fileID: 9600000, guid: 44ef9be992c55254f938032b9e35d110,
     type: 2}
   m_PrefabInternal: {fileID: 1895343525}
-  m_GameObject: {fileID: 377337323}
+  m_GameObject: {fileID: 540996017}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -5126,6 +5124,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401630185}
+  - 96: {fileID: 4415517}
   m_Layer: 12
   m_Name: sponge_Rigged:sponge
   m_TagString: Untagged
@@ -5139,13 +5138,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 1ad65fa4ee148674a9359eb9359e9ebd, type: 2}
   m_PrefabInternal: {fileID: 1465151330}
   m_GameObject: {fileID: 401630184}
-  m_LocalRotation: {x: 3.55761117e-16, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -.0019349237, y: -.128077805, z: -.000791048922}
+  m_LocalRotation: {x: 3.55761091e-16, y: 0, z: 4.16174654e-24, w: 1}
+  m_LocalPosition: {x: -.0019349237, y: -.150000006, z: -.000791048922}
   m_LocalScale: {x: 1, y: 1, z: 1.5381484}
   m_Children:
   - {fileID: 212378082}
   - {fileID: 800181984}
-  m_Father: {fileID: 4415525}
+  m_Father: {fileID: 515601217}
 --- !u!1001 &409901130
 Prefab:
   m_ObjectHideFlags: 0
@@ -6534,6 +6533,33 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!1 &515601216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: 1ad65fa4ee148674a9359eb9359e9ebd, type: 2}
+  m_PrefabInternal: {fileID: 1465151330}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 515601217}
+  m_Layer: 0
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515601217
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: 1ad65fa4ee148674a9359eb9359e9ebd, type: 2}
+  m_PrefabInternal: {fileID: 1465151330}
+  m_GameObject: {fileID: 515601216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 401630185}
+  m_Father: {fileID: 4415525}
 --- !u!1 &518386270
 GameObject:
   m_ObjectHideFlags: 0
@@ -6810,6 +6836,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 540996018}
   - 95: {fileID: 540996019}
+  - 96: {fileID: 377337325}
   m_Layer: 0
   m_Name: mug
   m_TagString: Untagged
@@ -9974,7 +10001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 11c4c589305798948b9291b6cab22e01, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.08286583
+      value: 1.09500003
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 11c4c589305798948b9291b6cab22e01, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11541,7 +11568,6 @@ GameObject:
   - 54: {fileID: 899041258}
   - 114: {fileID: 899041257}
   - 82: {fileID: 899041256}
-  - 96: {fileID: 899041255}
   m_Layer: 12
   m_Name: Timer
   m_TagString: Player
@@ -11555,7 +11581,7 @@ TrailRenderer:
   m_PrefabParentObject: {fileID: 9600000, guid: 11c4c589305798948b9291b6cab22e01,
     type: 2}
   m_PrefabInternal: {fileID: 777858333}
-  m_GameObject: {fileID: 899041254}
+  m_GameObject: {fileID: 1775301315}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -11795,7 +11821,7 @@ Transform:
   m_PrefabInternal: {fileID: 777858333}
   m_GameObject: {fileID: 899041254}
   m_LocalRotation: {x: 0, y: -.866618633, z: 0, w: .498971164}
-  m_LocalPosition: {x: -2.30043006, y: 1.08286583, z: -4.691998}
+  m_LocalPosition: {x: -2.30043006, y: 1.09500003, z: -4.691998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1775301316}
@@ -12290,7 +12316,6 @@ GameObject:
   - 114: {fileID: 951105632}
   - 82: {fileID: 951105631}
   - 82: {fileID: 951105630}
-  - 96: {fileID: 951105629}
   m_Layer: 12
   m_Name: Can
   m_TagString: Player
@@ -12317,7 +12342,7 @@ TrailRenderer:
   m_PrefabParentObject: {fileID: 9600000, guid: 51533e32b6c4b034a930140ac4687006,
     type: 2}
   m_PrefabInternal: {fileID: 1359967656}
-  m_GameObject: {fileID: 951105627}
+  m_GameObject: {fileID: 2027227917}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -19319,7 +19344,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1ad65fa4ee148674a9359eb9359e9ebd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.05598605
+      value: 1.08000004
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1ad65fa4ee148674a9359eb9359e9ebd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -22781,6 +22806,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1775301316}
   - 95: {fileID: 1775301317}
+  - 96: {fileID: 899041255}
   m_Layer: 0
   m_Name: KitchenTimer
   m_TagString: Untagged
@@ -22795,7 +22821,7 @@ Transform:
   m_PrefabInternal: {fileID: 777858333}
   m_GameObject: {fileID: 1775301315}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -.0900000036, z: 0}
+  m_LocalPosition: {x: 0, y: -.109999999, z: 0}
   m_LocalScale: {x: .75, y: .75, z: .75}
   m_Children:
   - {fileID: 425089689}
@@ -24301,7 +24327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 44ef9be992c55254f938032b9e35d110, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.09646153
+      value: 1.08000004
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 44ef9be992c55254f938032b9e35d110, type: 2}
       propertyPath: m_LocalPosition.z
@@ -25798,6 +25824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
+  winState: 0
   readyPlayers: 0100
   chosenHeroes: 
   players:
@@ -25908,6 +25935,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2027227918}
   - 95: {fileID: 2027227919}
+  - 96: {fileID: 951105629}
   m_Layer: 0
   m_Name: CokeCanModel
   m_TagString: Untagged

@@ -49,7 +49,6 @@ GameObject:
   - 143: {fileID: 14300000}
   - 54: {fileID: 5400000}
   - 82: {fileID: 8200002}
-  - 96: {fileID: 9600000}
   m_Layer: 12
   m_Name: Sponge
   m_TagString: Player
@@ -59,14 +58,30 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100006
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
+  - 96: {fileID: 9600000}
   m_Layer: 12
   m_Name: sponge_Rigged:sponge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  m_Layer: 0
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,10 +116,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: -.933205307, z: 0, w: .359343737}
-  m_LocalPosition: {x: -2.77441692, y: 1.05598605, z: -4.55813265}
+  m_LocalPosition: {x: -1.95473301, y: .0318222046, z: -2.12986898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400006}
+  - {fileID: 400008}
   m_Father: {fileID: 0}
 --- !u!4 &400006
 Transform:
@@ -112,12 +127,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: 3.55761117e-16, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -.0019349237, y: -.128077805, z: -.000791048922}
+  m_LocalRotation: {x: 3.55761091e-16, y: 0, z: 4.16174654e-24, w: 1}
+  m_LocalPosition: {x: -.0019349237, y: -.150000006, z: -.000791048922}
   m_LocalScale: {x: 1, y: 1, z: 1.5381484}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400000}
+  m_Father: {fileID: 400008}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400006}
   m_Father: {fileID: 400004}
 --- !u!23 &2300000
 Renderer:
@@ -325,7 +352,7 @@ TrailRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
+  m_GameObject: {fileID: 100006}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
