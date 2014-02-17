@@ -197,10 +197,10 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 
-		float deltaLookAngle = Quaternion.Angle(AiController.instance.m_Head.transform.rotation, Quaternion.LookRotation(transform.position - AiController.instance.m_Head.transform.position));
+		//float deltaLookAngle = Quaternion.Angle(AiController.instance.m_Head.transform.rotation, Quaternion.LookRotation(transform.position - AiController.instance.m_Head.transform.position));
 		//			Debug.Log(deltaLookAngle);
 
-		if (Renderer.isVisible && isVisible && deltaLookAngle < 60)
+		if (Renderer.isVisible && isVisible && /*deltaLookAngle < 60*/AiController.instance.IsInFov(transform.position))
 		{
 			var distance = Vector3.Distance(transform.position, cameraPosition);
 			Debug.DrawLine(transform.position, cameraPosition);

@@ -358,9 +358,9 @@ public class AiController : MonoBehaviour
 		m_PointOfInterest = _pointOfInterest;
     }
 
-    public bool IsInView(Vector3 worldPoint)
+    public bool IsInFov(Vector3 worldPoint)
     {
         worldPoint = m_Head.camera.WorldToViewportPoint(worldPoint);
-        return worldPoint.x >= 0.0f && worldPoint.x <= 1.0f && worldPoint.y >= 0.0f && worldPoint.y <= 1.0f;
+        return worldPoint.x >= 0.0f && worldPoint.x <= 1.0f && worldPoint.y >= 0.0f && worldPoint.y <= 1.0f && worldPoint.z >= 0.0f;
     }
 }

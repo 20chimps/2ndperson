@@ -55,8 +55,22 @@ public class AiHead : MonoBehaviour
 			lookTorqueYaw = m_PidAngularYaw.GetOutput(Mathf.Atan2(localTargetLook.x, localTargetLook.z), Time.fixedDeltaTime);
 
 			// Delta rotation on YZ plane (pitch).
-			float pitch = Mathf.Asin(localTargetLook.y / worldTargetLookDist);
-			lookTorquePitch = m_PidAngularPitch.GetOutput(pitch, Time.fixedDeltaTime);
+			float currentPitch = transform.rotation.eulerAngles.x;	// Degrees (horizon starts at zero, rotates down and around to 360).
+			if (currentPitch >= 180) currentPitch -= 360;
+			currentPitch *= Mathf.Deg2Rad;
+
+			float deltaPitch = Mathf.Asin(localTargetLook.y / worldTargetLookDist);	// Radians.
+
+			// Prevent the camera from spinning around.
+			// Though up a shitty formula to solve your equation? Use http://www.webmath.com/anything.html to simplify it.
+			//float targetPitch = currentPitch + deltaPitch;
+			//if (targetPitch > Mathf.PI * 0.5f)	// If considering looking further down than straight down...
+			//    deltaPitch = -2.0f * currentPitch + Mathf.PI - deltaPitch;
+			//else if (targetPitch < Mathf.PI * -0.5f)	// If considering looking further up than vertical...
+			//    deltaPitch = -2.0f * currentPitch - Mathf.PI - deltaPitch;
+
+			Debug.Log("Current: " + transform.rotation.eulerAngles.x.ToString() + "\nDelta: " + deltaPitch.ToString());
+			lookTorquePitch = m_PidAngularPitch.GetOutput(deltaPitch, Time.fixedDeltaTime);
 		}
 
 		float lookVelocityYaw = m_PidVelocityYaw.GetOutput(-m_Yaw.rigidbody.angularVelocity.y, Time.fixedDeltaTime);
