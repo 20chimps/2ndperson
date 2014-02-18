@@ -17,7 +17,6 @@ public class AiHead : MonoBehaviour
 	CPidController m_PidVelocityYaw = new CPidController(7, 0, 0);
 	CPidController m_PidVelocityPitch = new CPidController(7, 0, 0);
 
-
     void Awake()
     {
         m_Pitch = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/AI/AiHeadPitch"));
@@ -36,7 +35,7 @@ public class AiHead : MonoBehaviour
     {
 		if (parent == null) return;
 		transform.position = parent.m_Body.transform.position;
-		transform.rotation = m_Yaw.transform.rotation * m_Pitch.rigidbody.rotation;
+		transform.rotation = m_Yaw.transform.rotation * Quaternion.AngleAxis(m_Pitch.rigidbody.rotation.eulerAngles.y, Vector3.right);
 
 		Vector3 worldLookTarget = lookTarget - transform.position;
 		float worldTargetLookDist = worldLookTarget.magnitude;
@@ -55,30 +54,29 @@ public class AiHead : MonoBehaviour
 			lookTorqueYaw = m_PidAngularYaw.GetOutput(Mathf.Atan2(localTargetLook.x, localTargetLook.z), Time.fixedDeltaTime);
 
 			// Delta rotation on YZ plane (pitch).
-			float currentPitch = transform.rotation.eulerAngles.x;	// Degrees (horizon starts at zero, rotates down and around to 360).
+			float currentPitch = m_Pitch.rigidbody.rotation.eulerAngles.y;	// Degrees (horizon starts at zero, rotates down and around to 360).
 			if (currentPitch >= 180) currentPitch -= 360;
 			currentPitch *= Mathf.Deg2Rad;
 
-			float deltaPitch = Mathf.Asin(localTargetLook.y / worldTargetLookDist);	// Radians.
+			float deltaPitch = -Mathf.Asin(localTargetLook.y / worldTargetLookDist);	// Radians.
 
 			// Prevent the camera from spinning around.
 			// Though up a shitty formula to solve your equation? Use http://www.webmath.com/anything.html to simplify it.
-			//float targetPitch = currentPitch + deltaPitch;
-			//if (targetPitch > Mathf.PI * 0.5f)	// If considering looking further down than straight down...
-			//    deltaPitch = -2.0f * currentPitch + Mathf.PI - deltaPitch;
-			//else if (targetPitch < Mathf.PI * -0.5f)	// If considering looking further up than vertical...
-			//    deltaPitch = -2.0f * currentPitch - Mathf.PI - deltaPitch;
+			float targetPitch = currentPitch + deltaPitch;
+			if (targetPitch > Mathf.PI * 0.5f)	// If considering looking further down than straight down...
+				deltaPitch = -2.0f * currentPitch + Mathf.PI - deltaPitch;
+			else if (targetPitch < Mathf.PI * -0.5f)	// If considering looking further up than vertical...
+				deltaPitch = -2.0f * currentPitch - Mathf.PI - deltaPitch;
 
-			Debug.Log("Current: " + transform.rotation.eulerAngles.x.ToString() + "\nDelta: " + deltaPitch.ToString());
+			Debug.Log("Current: " + currentPitch.ToString() + "\nDelta: " + deltaPitch.ToString());
 			lookTorquePitch = m_PidAngularPitch.GetOutput(deltaPitch, Time.fixedDeltaTime);
 		}
 
 		float lookVelocityYaw = m_PidVelocityYaw.GetOutput(-m_Yaw.rigidbody.angularVelocity.y, Time.fixedDeltaTime);
-		float lookVelocityPitch = m_PidVelocityPitch.GetOutput(m_Pitch.rigidbody.angularVelocity.x, Time.fixedDeltaTime);
-		//Debug.LogWarning(lookTorquePitch.ToString("F1") + "\t" + lookVelocityPitch.ToString("F1") + "\t" + m_Yaw.rigidbody.angularVelocity);
+		float lookVelocityPitch = m_PidVelocityPitch.GetOutput(-m_Pitch.rigidbody.angularVelocity.y, Time.fixedDeltaTime);
 
 		m_Yaw.rigidbody.AddTorque(Vector3.up * (lookTorqueYaw + lookVelocityYaw), ForceMode.Acceleration);
-		m_Pitch.rigidbody.AddTorque(Vector3.left * (lookTorquePitch + lookVelocityPitch), ForceMode.Acceleration);
+		m_Pitch.rigidbody.AddTorque(Vector3.up * (lookTorquePitch + lookVelocityPitch), ForceMode.Acceleration);
 
 		// Set state information saying whether the look target is being looked at or not.
 		lookingAtTarget = deltaLookAngle < 15;	// Is looking at target if within cone of x degrees radius.

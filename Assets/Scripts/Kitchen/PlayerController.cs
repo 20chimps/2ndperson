@@ -149,7 +149,10 @@ public class PlayerController : MonoBehaviour
 		{
 			// Apply gravity
 			moveDirection.y -= gravity * Time.fixedDeltaTime;
-			characterController.transform.forward = lastMoveDirection.normalized;
+
+			// Face the direction being moved:
+			if(lastMoveDirection.sqrMagnitude != 0)
+				characterController.transform.forward = lastMoveDirection.normalized;
 			
 		}
 
