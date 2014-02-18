@@ -4886,7 +4886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &408102242
 Transform:
   m_ObjectHideFlags: 0
@@ -11085,7 +11085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &872806942
 Transform:
   m_ObjectHideFlags: 0
@@ -13064,6 +13064,7 @@ Transform:
   - {fileID: 985649509}
   - {fileID: 1151328311}
   - {fileID: 1084735775}
+  - {fileID: 1640085296}
   m_Father: {fileID: 408102242}
 --- !u!1001 &1070255499
 Prefab:
@@ -13305,7 +13306,7 @@ GUIText:
   m_GameObject: {fileID: 1084735774}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Scott Emery
+  m_Text: Scott Emery @ScottKamEmery
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -13938,7 +13939,7 @@ GUIText:
   m_GameObject: {fileID: 1151328310}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Kit Chan
+  m_Text: Kit Chan @KitVox
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -15695,7 +15696,7 @@ GUIText:
   m_GameObject: {fileID: 1280828352}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Jade Abbot
+  m_Text: Jade Abbott
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -19795,6 +19796,56 @@ MeshFilter:
   m_PrefabInternal: {fileID: 152190761}
   m_GameObject: {fileID: 1638492212}
   m_Mesh: {fileID: 4300002, guid: 886cadb5212090043a0b0335df32627c, type: 3}
+--- !u!1 &1640085295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1640085296}
+  - 132: {fileID: 1640085297}
+  m_Layer: 0
+  m_Name: 'Text: 5 Dan'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1640085296
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1640085295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1064874939}
+--- !u!132 &1640085297
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1640085295}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Daniel Langsford
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 34
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1641643902
 GameObject:
   m_ObjectHideFlags: 0
