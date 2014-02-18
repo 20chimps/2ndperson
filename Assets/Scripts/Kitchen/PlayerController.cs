@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     }
 
 	private Vector3 moveDirection = Vector3.zero;
+	private Vector3 lastMoveDirection = Vector3.zero;
     bool climbingPressed = false;
 
     public bool vibrate = true;
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
             if (climbingPressed && !value)
             {
                 // Exit climb area. Push player forward
-                Vector3 move = transform.forward * 0.1f;
+                Vector3 move = transform.forward * 0.25f;
                 move.y += 0.2f;
                 GetComponent<CharacterController>().Move(move);
                 moveDirection = Vector3.zero;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
 			characterController = GetComponent<CharacterController>();
 		}
 	}
-	
+	static int framecount;
 	void FixedUpdate() 
 	{
 		if (CGame.Singleton.currentState != CGame.EGameState.Kitchen)
@@ -119,6 +120,8 @@ public class PlayerController : MonoBehaviour
 				moved = true;
                 moveDirection *= speed;
                 GetComponent<Animator>().SetBool("Move", true);
+				characterController.transform.forward = moveDirection.normalized;
+				lastMoveDirection = moveDirection;
             }
             else
             {
@@ -137,7 +140,7 @@ public class PlayerController : MonoBehaviour
 				{
 					if (Mathf.Abs(InputDevice.GetAxisX(playerIndex)) + Mathf.Abs(InputDevice.GetAxisY(playerIndex)) > 0.1f)
 					{
-						moveDirection.y += jumpSpeed * 0.3f;
+					    moveDirection.y += jumpSpeed * 0.3f;
 					}
 				}
 			}
@@ -146,7 +149,20 @@ public class PlayerController : MonoBehaviour
 		{
 			// Apply gravity
 			moveDirection.y -= gravity * Time.fixedDeltaTime;
+			characterController.transform.forward = lastMoveDirection.normalized;
+			
 		}
+
+		//if (inAir && (characterController.collisionFlags & CollisionFlags.Below) == 0)
+		//{
+		//    characterController.transform.forward = lastMoveDirection.normalized;
+		//    inAir = false;
+		//}
+		if ((characterController.collisionFlags & CollisionFlags.Below) != 0)
+		{
+
+		}
+
 
         // If in a climbing region and the climbing button ISN'T pressed
         if (CanClimb && !climbingPressed)
@@ -157,6 +173,8 @@ public class PlayerController : MonoBehaviour
             {
                 climbingPressed = true;
                 moveDirection = Vector3.zero;
+
+
             }
         }
 
@@ -179,10 +197,6 @@ public class PlayerController : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.fixedDeltaTime);
-		if (moved)
-		{
-			characterController.transform.forward = moveDirection.normalized;
-		}
 
 		cameraPosition = AiController.instance.m_Head.camera.transform.position;
 
@@ -229,7 +243,7 @@ public class PlayerController : MonoBehaviour
 			Debug.DrawLine(transform.position, cameraPosition);
 			if (moveVibration > .1)
 			{
-				Debug.Log("saw disturbance at " + transform.position + " " + distance + " away");
+				//Debug.Log("saw disturbance at " + transform.position + " " + distance + " away");
 				AiController.instance.SetPointOfInterest(new AiController.CPointOfInterest(transform.position, 3));
 				AiController.instance.ProcessEvent(AiController.EEvent.sawDisturbance);
 				if (distance < 1)
@@ -249,7 +263,7 @@ public class PlayerController : MonoBehaviour
 			//Debug.Log (moveVibration);
 			if (moveVibration > .5)
 			{
-				Debug.Log("heard disturbance at " + transform.position);
+				//Debug.Log("heard disturbance at " + transform.position);
 				GameObject.Find("crosshair").GetComponent<crosshair>().Chase(transform);
 				AiController.instance.SetPointOfInterest(new AiController.CPointOfInterest(transform.position, 3));
 				AiController.instance.ProcessEvent(AiController.EEvent.heardDisturbance);

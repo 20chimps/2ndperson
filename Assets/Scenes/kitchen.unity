@@ -7438,7 +7438,7 @@ MonoBehaviour:
   currentState: 2
   winState: 0
   readyPlayers: 0100
-  chosenHeroes: 0000000000000000
+  chosenHeroes: 0200000000000000
   players:
   - {fileID: 0}
   - {fileID: 0}
@@ -20891,6 +20891,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 145582b88eedbb34fafa407e9049fb74, type: 2}
       propertyPath: currentState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 145582b88eedbb34fafa407e9049fb74, type: 2}
+      propertyPath: chosenHeroes.Array.data[0]
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
