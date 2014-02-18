@@ -131,6 +131,16 @@ public class PlayerController : MonoBehaviour
             {
                 moveDirection.y += jumpSpeed;
             }
+			else
+			{
+				if (CGame.Singleton.chosenHeroes[playerIndex] != EPropType.Sponge)
+				{
+					if (Mathf.Abs(InputDevice.GetAxisX(playerIndex)) + Mathf.Abs(InputDevice.GetAxisY(playerIndex)) > 0.1f)
+					{
+						moveDirection.y += jumpSpeed * 0.3f;
+					}
+				}
+			}
 		}
 		else // Not grounded (In Air)
 		{
