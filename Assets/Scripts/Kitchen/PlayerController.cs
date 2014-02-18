@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     }
 
 	private Vector3 forwardDirection = new Vector3(1.0f, 0.0f, 0.0f);
+	private Vector3 rightDirection = new Vector3(0.0f, 0.0f, -1.0f);
 	private CharacterController characterController;
 
     private Renderer Renderer
@@ -88,26 +89,34 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
+		if(GetComponent<CDeathSequence>().enabled == true)
+		{
+			return;
+		}
+
 		//GamePadState padState =  GamePad.GetState((XInputDotNetPure.PlayerIndex)playerIndex);
         //GamePadButtons buttons = padState.Buttons;
 
+		bool moved = false;
+
 		// If not climbing, face forward
-		if(!climbingPressed)
-		{
-			characterController.transform.forward = forwardDirection;
-		}
+		//if(!climbingPressed)
+		//{
+		//    characterController.transform.forward = forwardDirection;
+		//}
 
         // If grounded and NOT Climbing you can Move and Jump
         if (characterController.isGrounded) // This is a Unity built-in bool for CharacterController
         {
 			//moveDirection = transform.forward * padState.ThumbSticks.Left.Y;
 			//moveDirection += transform.right * padState.ThumbSticks.Left.X;
-			moveDirection = transform.forward * InputDevice.GetAxisY(playerIndex);
-			moveDirection += transform.right * InputDevice.GetAxisX(playerIndex);
+			moveDirection = forwardDirection * InputDevice.GetAxisY(playerIndex);
+			moveDirection += rightDirection * InputDevice.GetAxisX(playerIndex);
             
 			// If there is analog movement outside of the deadzone, move the character
             if (moveDirection.magnitude > 0.01f)
             {
+				moved = true;
                 moveDirection *= speed;
                 GetComponent<Animator>().SetBool("Move", true);
             }
@@ -160,6 +169,10 @@ public class PlayerController : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.fixedDeltaTime);
+		if (moved)
+		{
+			characterController.transform.forward = moveDirection.normalized;
+		}
 
 		cameraPosition = AiController.instance.m_Head.camera.transform.position;
 

@@ -67,7 +67,11 @@ public class GameOverScreenLogic : MonoBehaviour
 		if (mainCamera != null)
 		{
 			mainCamera.GetComponent<CameraLookAt>().target = null;
-			aiCamera.enabled = true;
+
+			if (aiCamera != null)
+			{
+				aiCamera.enabled = true;
+			}
 		}
 	}
 
