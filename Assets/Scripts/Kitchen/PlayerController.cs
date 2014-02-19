@@ -113,7 +113,8 @@ public class PlayerController : MonoBehaviour
 			//moveDirection += transform.right * padState.ThumbSticks.Left.X;
 			moveDirection = forwardDirection * InputDevice.GetAxisY(playerIndex);
 			moveDirection += rightDirection * InputDevice.GetAxisX(playerIndex);
-            
+            moveDirection.Normalize();
+
 			// If there is analog movement outside of the deadzone, move the character
             if (moveDirection.magnitude > 0.01f)
             {

@@ -113,6 +113,12 @@ public class Kitchen : MonoBehaviour
 			CGame.Singleton.HighscoreTimer += Time.deltaTime;
 			System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(CGame.Singleton.HighscoreTimer);
 			timer.text = timeSpan.Minutes.ToString("D2") + ":" + timeSpan.Seconds.ToString("D2") + ":" + (Mathf.FloorToInt(timeSpan.Milliseconds * 0.1f)).ToString("D2");
+
+
+            if (timeSpan.Minutes == 5)
+            {
+                gameLost = true;
+            }
 		}
 
         if (Input.GetKeyUp(KeyCode.F1))

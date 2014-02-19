@@ -72,29 +72,32 @@ public class CharacterSelectScreen : MonoBehaviour
 		if (playersPlaying[0])
 		{
 			// P1 Input
-			movement = InputDevice.GetAxisX(0);
-			if(movement == 0.0f)
-			{
-				movedStick[0] = false;
-			}
-			if(movedStick[0] == false)
-			{
-				if (movement == 0.0f)
-				{
-				}
-				else if (movement > 0.001f)
-				{
-					propSelections[0] = SelectRight(propSelections[0], 1);
-					MoveArrow(0);
-					movedStick[0] = true;
-				}
-				else if(movement < 0.001f)
-				{
-					propSelections[0] = SelectLeft(propSelections[0], 1);
-					MoveArrow(0);
-					movedStick[0] = true;
-				}
-			}
+            if (readyPlayers[0] == MenuControl.ControllerState.NOTREADY)
+            {
+                movement = InputDevice.GetAxisX(0);
+                if (movement == 0.0f)
+                {
+                    movedStick[0] = false;
+                }
+                if (movedStick[0] == false)
+                {
+                    if (movement == 0.0f)
+                    {
+                    }
+                    else if (movement > 0.001f)
+                    {
+                        propSelections[0] = SelectRight(propSelections[0], 1);
+                        MoveArrow(0);
+                        movedStick[0] = true;
+                    }
+                    else if (movement < 0.001f)
+                    {
+                        propSelections[0] = SelectLeft(propSelections[0], 1);
+                        MoveArrow(0);
+                        movedStick[0] = true;
+                    }
+                }
+            }
 
 			// Check if P1 wants to ready up
 			if (readyPlayers[0] == MenuControl.ControllerState.NOTREADY)
@@ -102,15 +105,17 @@ public class CharacterSelectScreen : MonoBehaviour
 				if (InputDevice.GetA(0))
 				{
 					readyPlayers[0] = MenuControl.ControllerState.READY;
+                    arrows[0].guiTexture.color = Color.green;
 				}
 			}
 
 			// Or Go back from ready
 			else if (readyPlayers[0] == MenuControl.ControllerState.READY)
 			{
-				if (InputDevice.GetA(0))
+				if (InputDevice.GetB(0))
 				{
 					readyPlayers[0] = MenuControl.ControllerState.NOTREADY;
+                    arrows[0].guiTexture.color = Color.white;
 				}
 			}
 		}
@@ -118,29 +123,32 @@ public class CharacterSelectScreen : MonoBehaviour
 		if (playersPlaying[1])
 		{
 			// P2 Input
-			movement = InputDevice.GetAxisX(1);
-			if (movement == 0.0f)
-			{
-				movedStick[1] = false;
-			}
-			if (movedStick[1] == false)
-			{
-				if (movement == 0.0f)
-				{
-				}
-				else if (movement > 0.001f)
-				{
-					propSelections[1] = SelectRight(propSelections[1], 0);
-					MoveArrow(1);
-					movedStick[1] = true;
-				}
-				else if (movement < 0.001f)
-				{
-					propSelections[1] = SelectLeft(propSelections[1], 0);
-					MoveArrow(1);
-					movedStick[1] = true;
-				}
-			}
+            if (readyPlayers[1] == MenuControl.ControllerState.NOTREADY)
+            {
+                movement = InputDevice.GetAxisX(1);
+                if (movement == 0.0f)
+                {
+                    movedStick[1] = false;
+                }
+                if (movedStick[1] == false)
+                {
+                    if (movement == 0.0f)
+                    {
+                    }
+                    else if (movement > 0.001f)
+                    {
+                        propSelections[1] = SelectRight(propSelections[1], 0);
+                        MoveArrow(1);
+                        movedStick[1] = true;
+                    }
+                    else if (movement < 0.001f)
+                    {
+                        propSelections[1] = SelectLeft(propSelections[1], 0);
+                        MoveArrow(1);
+                        movedStick[1] = true;
+                    }
+                }
+            }
 
 			// Check if P2 wants to ready up
 			if (readyPlayers[1] == MenuControl.ControllerState.NOTREADY)
@@ -148,15 +156,18 @@ public class CharacterSelectScreen : MonoBehaviour
 				if (InputDevice.GetA(1))
 			    {
 			        readyPlayers[1] = MenuControl.ControllerState.READY;
+                    arrows[1].guiTexture.color = Color.green;
 			    }
 			}
 
 			// Or Go back from ready
 			else if (readyPlayers[1] == MenuControl.ControllerState.READY)
 			{
-				if (InputDevice.GetA(1))
+                if (InputDevice.GetB(1))
 			    {
 			        readyPlayers[1] = MenuControl.ControllerState.NOTREADY;
+                    arrows[1].guiTexture.color = Color.white;
+
 			    }
 			}
 		}

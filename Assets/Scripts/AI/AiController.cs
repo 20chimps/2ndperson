@@ -91,7 +91,11 @@ public class AiController : MonoBehaviour
                 {
                     ai.m_Event = EEvent.transition_NewPointOfInterest;
 					ai.m_State = EState.none;
-					GameObject.Find("crosshair").GetComponent<crosshair>().CalmDown();
+                    GameObject hairGo = GameObject.Find("crosshair") as GameObject;
+                    if (hairGo != null)
+                    {
+                        hairGo.GetComponent<crosshair>().CalmDown();
+                    }
                 }
                 else if (ai.m_HeadAi.lookingAtTarget)    // Wait until the target is being looked at...
                 {
@@ -128,7 +132,11 @@ public class AiController : MonoBehaviour
                 if (ai.m_Target_Interest <= 0.0f)
                 {
 					ai.m_State = EState.none;
-					GameObject.Find("crosshair").GetComponent<crosshair>().CalmDown();
+                    GameObject hairGo = GameObject.Find("crosshair") as GameObject;
+                    if (hairGo != null)
+                    {
+                        hairGo.GetComponent<crosshair>().CalmDown();
+                    }
                 }
                 break;
 
@@ -163,7 +171,13 @@ public class AiController : MonoBehaviour
                 // Check out something random.
 				ai.m_HeadAi.lookTarget = ai.m_BodyAi.moveTarget = new Vector3(Random.Range(-4.5f, 4.5f), Random.Range(1.0f, 2.0f), Random.Range(-4.5f, 4.5f));
                 ai.m_Target_Interest = Random.Range(1.0f, 3.0f);
-				GameObject.Find("crosshair").GetComponent<crosshair>().CalmDown();
+
+                GameObject hairGo = GameObject.Find("crosshair") as GameObject;
+                if (hairGo != null)
+                {
+                    hairGo.GetComponent<crosshair>().CalmDown();
+                }
+
                 ai.m_Event = EEvent.transition_LookAt;
                 ai.m_State = EState.none;
                 break;

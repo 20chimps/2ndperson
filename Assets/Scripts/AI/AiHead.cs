@@ -68,7 +68,7 @@ public class AiHead : MonoBehaviour
 			else if (targetPitch < Mathf.PI * -0.5f)	// If considering looking further up than vertical...
 				deltaPitch = -2.0f * currentPitch - Mathf.PI - deltaPitch;
 
-			Debug.Log("Current: " + currentPitch.ToString() + "\nDelta: " + deltaPitch.ToString());
+			//Debug.Log("Current: " + currentPitch.ToString() + "\nDelta: " + deltaPitch.ToString());
 			lookTorquePitch = m_PidAngularPitch.GetOutput(deltaPitch, Time.fixedDeltaTime);
 		}
 
