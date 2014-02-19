@@ -44,7 +44,7 @@ public class TitleScreen : MonoBehaviour
 		pages[(int)EFlyThroughStates.Controls] = controlsPage;
 		pages[(int)EFlyThroughStates.Robot] = robotPage;
 		pages[(int)EFlyThroughStates.Window] = windowPage;
-		pages[(int)EFlyThroughStates.Credits] = windowPage;
+		pages[(int)EFlyThroughStates.Credits] = creditsPage;
 		SetPage(EFlyThroughStates.Title);
 
 		playerStates = new MenuControl.ControllerState[CGame.maxPlayers];
