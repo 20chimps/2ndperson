@@ -20,6 +20,9 @@ public class CGame : MonoBehaviour
 		HighscoreBeaten,
 	}
 
+    private float restartTimer = 0.0f;
+    private float restartTimerMax = 10.0f;
+
 	public EGameState currentState = EGameState.Kitchen;
 	public EWinState winState = EWinState.Win;
 
@@ -111,6 +114,25 @@ public class CGame : MonoBehaviour
 			}
 		}
 	}
+
+    public void Update()
+    {
+        if (InputDevice.GetC(0) && InputDevice.GetC(1))
+        {
+            restartTimer += Time.deltaTime;
+
+            if (restartTimer >= 10.0f)
+            {
+                restartTimer = 0.0f;
+                CGame.Singleton.currentState = CGame.EGameState.Title;
+                Application.LoadLevel("title");
+            }
+        }
+        else
+        {
+            restartTimer = 0.0f;
+        }
+    }
 
 
 	public bool HasScoreBeenBeaten(int players, float time)
