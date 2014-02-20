@@ -212,22 +212,30 @@ public class CGame : MonoBehaviour
 
 		if (currentState == EGameState.Title)
 		{
+			
+			bool caught = false;
 			try
 			{
 				LevelSerializer.LoadObjectTreeFromFile("highscores" + ".scores");
 			}
 			catch (System.IO.FileNotFoundException)
 			{
-				if (highscoreData.GetHighScoreList(0).Count < 10)
-				{
-					// Nothing is saved.
-					// Populate it.
-					PopulateSomeData();
-					highscoreData.SortListsAscending();
-					SaveData();
+				caught = true;
+			}
+			catch (System.IO.IsolatedStorage.IsolatedStorageException)
+			{
+				caught = true;
+			}
+
+			if (caught || highscoreData.GetHighScoreList(0).Count < 10)
+			{
+				// Nothing is saved.
+				// Populate it.
+				PopulateSomeData();
+				highscoreData.SortListsAscending();
+				SaveData();
 				
-					Debug.Log("NEWGAME");
-				}
+				Debug.Log("NEWGAME");
 			}
 
 			highscoreData.SortListsAscending();

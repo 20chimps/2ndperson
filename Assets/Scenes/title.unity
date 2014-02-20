@@ -2678,6 +2678,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 114790034}
+  - 54: {fileID: 114790035}
   m_Layer: 0
   m_Name: rubbishBinGrp
   m_TagString: Untagged
@@ -2699,6 +2700,22 @@ Transform:
   - {fileID: 900367032}
   - {fileID: 440836510}
   m_Father: {fileID: 121803798}
+--- !u!54 &114790035
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: 523348ddf7abd6a47b4cf6e75d421ed5,
+    type: 2}
+  m_PrefabInternal: {fileID: 688709415}
+  m_GameObject: {fileID: 114790033}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &116472978
 GameObject:
   m_ObjectHideFlags: 0
@@ -8520,6 +8537,7 @@ GameObject:
   - 4: {fileID: 440836510}
   - 33: {fileID: 440836512}
   - 23: {fileID: 440836511}
+  - 64: {fileID: 440836513}
   m_Layer: 0
   m_Name: rubbishBin3
   m_TagString: Untagged
@@ -8567,6 +8585,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 688709415}
   m_GameObject: {fileID: 440836509}
+  m_Mesh: {fileID: 4300004, guid: e55ff738cf873ce4ba42240dc1b845de, type: 3}
+--- !u!64 &440836513
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400000, guid: 523348ddf7abd6a47b4cf6e75d421ed5,
+    type: 2}
+  m_PrefabInternal: {fileID: 688709415}
+  m_GameObject: {fileID: 440836509}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300004, guid: e55ff738cf873ce4ba42240dc1b845de, type: 3}
 --- !u!1 &444013235
 GameObject:
@@ -18099,6 +18131,7 @@ GameObject:
   - 4: {fileID: 900367032}
   - 33: {fileID: 900367034}
   - 23: {fileID: 900367033}
+  - 64: {fileID: 900367035}
   m_Layer: 0
   m_Name: rubbishBin2
   m_TagString: Untagged
@@ -18146,6 +18179,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 688709415}
   m_GameObject: {fileID: 900367031}
+  m_Mesh: {fileID: 4300002, guid: e55ff738cf873ce4ba42240dc1b845de, type: 3}
+--- !u!64 &900367035
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400004, guid: 523348ddf7abd6a47b4cf6e75d421ed5,
+    type: 2}
+  m_PrefabInternal: {fileID: 688709415}
+  m_GameObject: {fileID: 900367031}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: e55ff738cf873ce4ba42240dc1b845de, type: 3}
 --- !u!1 &902236947
 GameObject:
@@ -20084,7 +20131,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1027189986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .200000003, y: -.200000003, z: 0}
+  m_LocalPosition: {x: .300000012, y: -0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1562272253}
@@ -22116,6 +22163,7 @@ GameObject:
   - 4: {fileID: 1128470446}
   - 33: {fileID: 1128470448}
   - 23: {fileID: 1128470447}
+  - 64: {fileID: 1128470449}
   m_Layer: 0
   m_Name: rubbishBin1
   m_TagString: Untagged
@@ -22163,6 +22211,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 688709415}
   m_GameObject: {fileID: 1128470445}
+  m_Mesh: {fileID: 4300000, guid: e55ff738cf873ce4ba42240dc1b845de, type: 3}
+--- !u!64 &1128470449
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400002, guid: 523348ddf7abd6a47b4cf6e75d421ed5,
+    type: 2}
+  m_PrefabInternal: {fileID: 688709415}
+  m_GameObject: {fileID: 1128470445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: e55ff738cf873ce4ba42240dc1b845de, type: 3}
 --- !u!1001 &1129878800
 Prefab:
